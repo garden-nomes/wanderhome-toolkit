@@ -1,0 +1,351 @@
+categories:
+  - name: Artistic
+    traits:
+      - name: Crafty
+        description:
+        canAlways:
+          - Invent something totally new.
+          - Propose an alternate approach.
+          - Reveal that a plan they’ve had in motion has paid off.
+
+      - name: Dramatic
+        description:
+        canAlways:
+          - Put on a big show, with heightened emotions and histrionics.
+          - Distract someone with a talented display.
+          - Play up your emotions to absurd levels.
+
+      - name: Imaginative
+        description:
+        canAlways:
+          - Explain a way things could be better.
+          - Forget about something really important.
+          - Describe an everyday object in a way no one’s ever thought about it before.
+
+      - name: Poetic
+        description:
+        canAlways:
+          - Wax metaphorical.
+          - Get caught up in the big picture.
+          - Give advice on what someone else should say.
+
+      - name: Glamorous
+        description:
+        canAlways:
+          - Dazzle and stun everyone who beholds you.
+          - Reveal the appearance you hide underneath.
+          - Tell someone to look at you. If they want to look away, they’re going to need to spend a token.
+
+      - name: Miraculous
+        description:
+        canAlways:
+          - Make possible the impossible.
+          - Take someone’s hand and fly with them.
+          - Offer to grant someone’s wish, in a way that won’t work out how they want. If they want to reject your offer, they’re going to need to spend a token.
+
+  - name: Grounded
+    traits:
+      - name: Honest
+        description:
+        canAlways:
+          - Lay out the facts, as you see it.
+          - Point out the truth everyone else has been ignoring.
+          - 'Ask: “Do you want my opinion?”'
+
+      - name: Quiet
+        description:
+        canAlways:
+          - Tap on someone’s shoulder.
+          - Stare at someone until they get the point.
+          - 'Non-verbally ask: “Are you okay?”'
+
+      - name: Watchful
+        description:
+        canAlways:
+          - Point out something people missed.
+          - Guard the exits.
+          - 'Ask: “What’s that you’re hiding?”'
+
+      - name: Wise
+        description:
+        canAlways:
+          - Reflect on what someone else has said.
+          - Propose a path quite unlike those that others have suggested.
+          - 'Ask: “What are your feelings on the matter?”'
+
+      - name: Intertwined
+        description:
+        canAlways:
+          - Show how two things are connected in an unexpected way.
+          - Take your time and move very carefully.
+          - Help someone ask the world around them for guidance. If they want to know the answer, they’re going to need to spend a token.
+
+      - name: Invisible
+        description:
+        canAlways:
+          - Have been somewhere the whole time.
+          - Move right past people who should’ve spotted you.
+          - Vanish. If someone wants to find you again, they’re going to need to spend a token.
+
+  - name: Intellectual
+    traits:
+      - name: Ambitious
+        description:
+        canAlways:
+          - Take a calculated risk.
+          - Explain how you’re the only person whocan handle this.
+          - 'Ask: “How would you make things better?”'
+
+      - name: Cunning
+        description:
+        canAlways:
+          - Get somewhere you’re not supposed to be.
+          - Tell a compelling lie.
+          - 'Ask: “What’s your real goal here?”'
+
+      - name: Inquisitive
+        description:
+        canAlways:
+          - Focus on an irrelevant detail.
+          - Hold something up to the light.
+          - 'Ask: “What’s this?”'
+
+      - name: Learned
+        description:
+        canAlways:
+          - Reference a text no one else here has read.
+          - Know something useful that applies to the situation.
+          - 'Ask: “Do you want my advice?”'
+
+      - name: Oracular
+        description:
+        canAlways:
+          - Make a vague and unclear reference to something that hasn’t happened yet.
+          - 'Say: “I told you so.”'
+          - Tell someone the bad news about what their future holds. If they want to defy you, they’ll need to spend a token.
+
+      - name: Witchy
+        description:
+        canAlways:
+          - Cackle.
+          - Mix assorted components to create something new.
+          - Point out a personality flaw someone hasn’t been dealing with. If you’re right, put a curse on them. If they want to get rid of the curse, they’re going to need to address their flaw.
+
+  - name: Personal
+    traits:
+      - name: Cheerful
+        description:
+        canAlways:
+          - Look on the bright side.
+          - Whistle a chipper tune.
+          - Gallivant into an awkward situation.
+
+      - name: Chill
+        description:
+        canAlways:
+          - Go with the flow.
+          - Remind everyone to take a step back.
+          - 'Ask: “Do you wanna talk about it?”'
+
+      - name: Confident
+        description:
+        canAlways:
+          - Jump headfirst into action.
+          - Charge into a situation without
+          - understanding the risks.
+          - 'Say: “I’ve got it covered.”'
+
+      - name: Pensive
+        description:
+        canAlways:
+          - Rain on someone’s parade.
+          - Stare off into the distance mournfully.
+          - 'Ask: “What else can we do?”'
+
+      - name: Luminescent
+        description:
+        canAlways:
+          - Shed light on the shadows of the world.
+          - Lead the way.
+          - 'Non-verbally ask: “What is true about you that you keep from everyone?” If they want to withhold an answer from you, they’re going to need to spend a token.'
+
+      - name: Venerable
+        description:
+        canAlways:
+          - Offer something that hasn’t been seen in a very long time.
+          - Show what things were like in more grim times.
+          - Tell someone how they will repeat the mistakes of the past. If they want to prove you wrong, they’re going to need to spend a token.
+
+  - name: Physical
+    traits:
+      - name: Adventurous
+        description:
+        canAlways:
+          - Declare where you’re going next.
+          - Charge headfirst into trouble.
+          - Have circumstances improbably work out for you.
+
+      - name: Passionate
+        description:
+        canAlways:
+          - Explain why this matters to you.
+          - Say exactly what’s on your mind right now.
+          - Lose your temper and damage something important.
+
+      - name: Resolute
+        description:
+        canAlways:
+          - Keep at something that others would give up at.
+          - Reject what’s right in front of your eyes.
+          - Refuse to yield under pressure.
+
+      - name: Sturdy
+        description:
+        canAlways:
+          - Support something in danger of collapse.
+          - Push something concerning aside.
+          - Exert yourself to protect someone else.
+
+      - name: Feral
+        description:
+        canAlways:
+          - Call out to the wild, and hear it respond.
+          - 'Ask: “What’s stopping you?”'
+          - Show all your teeth and bite. If someone doesn’t want to get bit, they’re going to need to spend a token.
+
+      - name: Mighty
+        description:
+        canAlways:
+          - Take on a heavy burden.
+          - Move the unmovable.
+          - Anchor something in the ground. If someone wants to move it even the slightest bit, they’re going to need to spend a token.
+
+  - name: Social
+    traits:
+      - name: Caring
+        description:
+        canAlways:
+          - Protect someone else from the world.
+          - Inconvenience yourself to help someone else.
+          - 'Ask: “What do you need right now?”'
+
+      - name: Friendly
+        description:
+        canAlways:
+          - Start up a conversation with someone else.
+          - Introduce someone to an old friend of yours.
+          - Get really attached to an inanimate object.
+
+      - name: Proper
+        description:
+        canAlways:
+          - Explain how things have been handled in the past.
+          - Judge something for its inappropriateness.
+          - Struggle to get something new.
+
+      - name: Raucous
+        description:
+        canAlways:
+          - Find the fun in a dull task.
+          - Get lost in the excitement.
+          - Know exactly where a better party is.
+
+      - name: Empathetic
+        description:
+        canAlways:
+          - Communicate with something that can’t normally talk.
+          - Express a concept in a way everyone understands.
+          - 'Non-verbally ask: “What are you feeling?” If they don’t want to answer you truthfully, they’re going to need to spend a token.'
+
+      - name: Many-Faced
+        description:
+        canAlways:
+          - Change dramatically, and become something new.
+          - Reveal another kith to have been them this whole time.
+          - Look exactly like another character. If someone wants to spot the difference, they’re going to need to spend a token.
+
+  - name: Traumatized
+    traits:
+      - name: Cautious
+        description:
+        canAlways:
+          - Point out a danger, real or imagined.
+          - Refuse to open up to someone else.
+          - Step out of your comfort zone, even slightly.
+
+      - name: Empty
+        description:
+        canAlways:
+          - Sigh and gaze blankly.
+          - 'Ask: “Does it matter?”'
+          - Display an emotion you thought you couldn’t anymore.
+
+      - name: Frantic
+        description:
+        canAlways:
+          - Agree to something dangerous or risky.
+          - Try to say too many things all at once.
+          - Push against your instincts and take a break.
+
+      - name: Furious
+        description:
+        canAlways:
+          - Lash out without meaning to.
+          - Bottle everything up and seethe.
+          - Express your rage in a constructive manner.
+
+      - name: Grieving
+        description:
+        canAlways:
+          - Overflow with emotion.
+          - Hold tight to comfort and refuse to let go.
+          - 'Ask: “Are you in a place to listen right now?”'
+
+      - name: Hurt
+        description:
+        canAlways:
+          - Flinch at someone else’s actions.
+          - Re-open an old wound.
+          - Articulate a step on the path towards healing.
+
+      - name: Lost
+        description:
+        canAlways:
+          - Wander deep into the darkness.
+          - Express the disconnect between yourself and the world around you.
+          - Seek out the help of someone else to anchor you.
+
+      - name: Nervous
+        description:
+        canAlways:
+          - Worry about something you don’t have control over.
+          - 'Say: “I’m sorry.”'
+          - 'Ask: “Is everything okay?”'
+
+      - name: Starving
+        description:
+        canAlways:
+          - Gnaw on what’s left.
+          - Blame the wrong person for your hunger.
+          - Name a person, place, object, or secret. If someone wants to hide it from you, they’re going to need to spend a token.
+
+      - name: Dead
+        description:
+        canAlways:
+          - Provide a bridge from one life to the other.
+          - Send a chill down someone’s spine.
+          - Show someone something they truly don’t want to grapple with. If they want to avoid thinking about it, they’re going to need to spend a token.
+
+      - name: Heroic
+        description:
+        canAlways:
+          - Know what’s best for everyone else.
+          - Present a perfect persona to the world.
+          - Declare someone fundamentally good or irredeemably evil. If anyone wants to prove you wrong, they’re going to need to spend a token.
+
+      - name: Royal
+        description:
+        canAlways:
+          - Engage in a petty and useless display of power.
+          - Inflict your will on the world around you.
+          - Make a sweeping proclamation. If someone wants to openly defy you, they’re going to need to spend a token.

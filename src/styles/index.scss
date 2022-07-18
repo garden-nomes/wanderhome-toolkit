@@ -1,0 +1,19 @@
+@import url("https://fonts.googleapis.com/css2?family=Joan&display=swap");
+
+$font-family-serif: "Joan", Constantia, "Lucida Bright", Lucidabright,
+  "Lucida Serif", Lucida, "DejaVu Serif", "Bitstream Vera Serif",
+  "Liberation Serif", Georgia, serif;
+$font-ui: var(--bs-font-sans-serif);
+$font-family-base: $font-family-serif;
+
+@import "bootstrap/scss/bootstrap";
+
+.btn,
+.nav-link {
+  font-family: $font-ui;
+}
+
+.luminari {
+  font-family: "Luminari";
+  src: local("Luminari"), url("Luminari-Regular.woff") format("woff");
+}

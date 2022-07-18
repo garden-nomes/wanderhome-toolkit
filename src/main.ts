@@ -1,5 +1,12 @@
 import { createApp } from "vue";
+import { createPinia } from "pinia";
 import App from "./App.vue";
-import "./index.css";
+import "./styles/index.scss";
+import { useCharacterStore } from "./stores/characters";
 
-createApp(App).mount("#app");
+const app = createApp(App);
+
+app.use(createPinia());
+useCharacterStore().seed();
+
+app.mount("#app");

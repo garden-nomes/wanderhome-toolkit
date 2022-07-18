@@ -1,24 +1,31 @@
-<script setup lang="ts">
-// This starter template is using Vue 3 <script setup> SFCs
-// Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
-import HelloWorld from "./components/HelloWorld.vue";
+<script lang="ts">
+import { defineComponent } from "vue";
+import TraitList from "./components/TraitList.vue";
+
+export default defineComponent({
+  name: "app",
+  components: { TraitList },
+});
 </script>
 
 <template>
-  <img
-    alt="Vue logo"
-    src="./assets/logo.png"
+  <nav class="navbar fixed-top bg-light">
+    <div class="container-fluid">
+      <span class="navbar-brand luminari">Wanderhome Toolkit</span>
+    </div>
+  </nav>
+
+  <div
+    class="container-fluid pb-3"
+    style="padding-top: 4.5rem"
   >
-  <HelloWorld msg="Hello Vue 3 + TypeScript + Vite" />
+    <trait-list />
+  </div>
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+<style lang="scss">
+:target {
+  padding-top: 4.5rem;
+  margin-top: -4.5rem;
 }
 </style>
