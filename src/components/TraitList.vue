@@ -23,13 +23,13 @@ const isSelected = (trait: Trait | TraitCategory) =>
           :key="category.name"
           class="nav-item"
         >
-          <a
+          <router-link
             class="nav-link"
-            :href="`#category-${category.name}`"
+            :to="`#category-${category.name}`"
             :class="isSelected(category) && 'active'"
           >
             {{ category.name }}
-          </a>
+          </router-link>
           <ul class="nav flex-column">
             <li
               v-for="trait in category.traits"
