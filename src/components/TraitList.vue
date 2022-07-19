@@ -1,22 +1,22 @@
 <script lang="ts" setup>
-import { useBrowserLocation } from "@vueuse/core";
+import { useRoute } from "vue-router";
 import { useTraitStore, Trait, TraitCategory } from "../stores/traits";
+import StickySidebarView from "./StickySidebarView.vue";
 
 const { categories } = useTraitStore();
 
-const location = useBrowserLocation();
+const route = useRoute();
+
+const getId = (trait: Trait | TraitCategory) =>
+  "traits" in trait ? `category-${trait.name}` : `trait-${trait.name}`;
 
 const isSelected = (trait: Trait | TraitCategory) =>
-  location.value.hash ===
-  ("traits" in trait ? `#category-${trait.name}` : `#trait-${trait.name}`);
+  route.hash === "#" + getId(trait);
 </script>
 
 <template>
-  <div class="d-flex">
-    <div
-      class="position-sticky me-4 pe-3 overflow-auto flex-shrink-0"
-      style="max-height: calc(100vh - 5.5rem); top: 4.5rem"
-    >
+  <sticky-sidebar-view>
+    <template #sidebar>
       <ul class="nav flex-column">
         <li
           v-for="category in categories"
@@ -36,23 +36,23 @@ const isSelected = (trait: Trait | TraitCategory) =>
               :key="trait.name"
               class="nav-item ms-3"
             >
-              <a
+              <router-link
                 class="nav-link"
-                :href="`#trait-${trait.name}`"
+                :to="`#${getId(trait)}`"
                 :class="isSelected(trait) && 'active'"
               >
                 {{ trait.name }}
-              </a>
+              </router-link>
             </li>
           </ul>
         </li>
       </ul>
-    </div>
+    </template>
 
     <ul class="list-unstyled">
       <li
         v-for="category in categories"
-        :id="`category-${category.name}`"
+        :id="getId(category)"
         :key="category.name"
       >
         <div class="h5 luminari">
@@ -65,14 +65,12 @@ const isSelected = (trait: Trait | TraitCategory) =>
             class="col-lg-4 col-md-6 col-12 d-flex"
           >
             <li
+              :id="getId(trait)"
               class="card"
               :class="isSelected(trait) ? 'border-primary shadow' : 'shadow-sm'"
             >
               <div class="card-header">
-                <div
-                  :id="`trait-${trait.name}`"
-                  class="card-title luminari mb-0"
-                >
+                <div class="card-title luminari mb-0">
                   {{ trait.name }}
                 </div>
               </div>
@@ -98,7 +96,7 @@ const isSelected = (trait: Trait | TraitCategory) =>
         </ul>
       </li>
     </ul>
-  </div>
+  </sticky-sidebar-view>
 </template>
 
 <style scoped lang="scss">
