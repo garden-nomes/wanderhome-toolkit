@@ -36,7 +36,7 @@ const active = computed(() => route.hash === `#${id.value}`);
 
     <div
       v-if="$slots.default"
-      class="card-body"
+      class="card-body px-4 py-3"
     >
       <slot />
     </div>
@@ -46,7 +46,7 @@ const active = computed(() => route.hash === `#${id.value}`);
 <style lang="scss" scoped>
 .card {
   transition: border-color 150ms linear, box-shadow 150ms ease-in-out;
-  max-height: calc(100vh - 9rem);
+  height: calc(100vh - 9rem);
   overflow-y: auto;
 
   &.active {

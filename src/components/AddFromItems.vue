@@ -118,24 +118,23 @@ const getOptions = (item: Trait | Nature) => {
     </template>
 
     <template v-else-if="modelValue.length">
-      <ul class="mb-0">
+      <ul class="mb-0 mt-2">
         <li
           v-for="option in modelValue"
           :key="option"
+          class="mb-1"
         >
           {{ option }}
         </li>
       </ul>
 
-      <div class="px-3">
-        <button
-          class="btn btn-minimal text-start w-100"
-          :disabled="!items.length"
-          @click="isExpanded = true"
-        >
-          {{ selectLabel }}
-        </button>
-      </div>
+      <button
+        class="btn btn-minimal text-start w-100"
+        :disabled="!items.length"
+        @click="isExpanded = true"
+      >
+        {{ selectLabel }}
+      </button>
     </template>
 
     <button

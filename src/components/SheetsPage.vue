@@ -47,18 +47,17 @@ const placeAnchor = (place: Place) => `place-${place.uid}`;
         Kith
       </p>
 
-      <ul class="nav flex-column mb-2">
+      <ul class="list-unstyled mb-2">
         <li
           v-for="kith in kithList"
           :key="kith.uid"
-          class="nav-item"
         >
           <router-link
-            class="nav-link py-0"
+            class="btn btn-minimal py-1 w-100 text-start"
             :to="`#${kithAnchor(kith)}`"
             @click.prevent
           >
-            {{ kith.name || "(unnamed)" }}
+            {{ kith.name || "(unnamed kith)" }}
           </router-link>
         </li>
       </ul>
@@ -67,41 +66,43 @@ const placeAnchor = (place: Place) => `place-${place.uid}`;
         Places
       </p>
 
-      <ul class="nav flex-column mb-2">
+      <ul class="list-unstyled mb-2">
         <li
           v-for="place in places"
           :key="place.uid"
-          class="nav-item"
         >
           <router-link
-            class="nav-link py-0"
+            class="btn btn-minimal py-1 w-100 text-start"
             :to="`#${placeAnchor(place)}`"
             @click.prevent
           >
-            {{ place.name || "(unnamed)" }}
+            {{ place.name || "(unnamed place)" }}
           </router-link>
         </li>
       </ul>
     </template>
 
     <div class="d-flex align-items-end mb-3">
-      <p class="h4 luminari me-2 mb-0">
-        Kith
-      </p>
+      <button
+        type="button"
+        class="btn btn-minimal"
+        @click="addKith"
+      >
+        <icon name="plus" />
+        Create Kith
+      </button>
 
-      <div class="ms-auto">
-        <button
-          type="button"
-          class="btn btn-minimal"
-          @click="addKith"
-        >
-          <icon name="plus" />
-          add kith
-        </button>
-      </div>
+      <button
+        type="button"
+        class="btn btn-minimal"
+        @click="addPlace"
+      >
+        <icon name="plus" />
+        Create Place
+      </button>
     </div>
 
-    <div class="row g-3">
+    <div class="row g-3 mb-3">
       <div
         v-for="kith in kithList"
         :key="kith.uid"
@@ -123,28 +124,11 @@ const placeAnchor = (place: Place) => `place-${place.uid}`;
       </div>
     </div>
 
-    <div class="d-flex align-items-end mb-3">
-      <p class="h4 luminari me-2 mb-0">
-        Places
-      </p>
-
-      <div class="ms-auto">
-        <button
-          type="button"
-          class="btn btn-minimal"
-          @click="addPlace"
-        >
-          <icon name="plus" />
-          add place
-        </button>
-      </div>
-    </div>
-
     <div class="row g-3">
       <div
         v-for="place in places"
         :key="place.uid"
-        class="col-auto"
+        class="col-12"
       >
         <place-card :id="place.uid" />
 
