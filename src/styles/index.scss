@@ -9,7 +9,8 @@ $font-family-base: $font-family-serif;
 @import "bootstrap/scss/bootstrap";
 
 .btn,
-.nav-link {
+.nav-link,
+.font-ui {
   font-family: $font-ui;
 }
 

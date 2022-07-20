@@ -2,6 +2,8 @@
 import { useRoute } from "vue-router";
 import { useTraitStore, Trait, TraitCategory } from "../stores/traits";
 import StickySidebarView from "./StickySidebarView.vue";
+import TraitCard from "./TraitCard.vue";
+import CardList from "./CardList.vue";
 
 const { categories } = useTraitStore();
 
@@ -58,42 +60,15 @@ const isSelected = (trait: Trait | TraitCategory) =>
         <div class="h5 luminari">
           {{ category.name }}
         </div>
-        <ul class="list-unstyled row gx-2 gy-2 mb-3">
-          <div
+
+        <card-list>
+          <trait-card
             v-for="trait in category.traits"
+            :id="getId(trait)"
             :key="trait.name"
-            class="col-lg-4 col-md-6 col-12 d-flex"
-          >
-            <li
-              :id="getId(trait)"
-              class="card"
-              :class="isSelected(trait) ? 'border-primary shadow' : 'shadow-sm'"
-            >
-              <div class="card-header">
-                <div class="card-title luminari mb-0">
-                  {{ trait.name }}
-                </div>
-              </div>
-
-              <div class="card-body">
-                <p>{{ trait.description }}</p>
-
-                <p class="luminari">
-                  Choose 1-2 they can always do:
-                </p>
-
-                <ul>
-                  <li
-                    v-for="item in trait.canAlways"
-                    :key="item"
-                  >
-                    {{ item }}
-                  </li>
-                </ul>
-              </div>
-            </li>
-          </div>
-        </ul>
+            :trait-name="trait.name"
+          />
+        </card-list>
       </li>
     </ul>
   </sticky-sidebar-view>

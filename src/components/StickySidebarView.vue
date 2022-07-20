@@ -1,7 +1,7 @@
 <template>
   <div class="row">
     <div
-      class="col-auto position-sticky"
+      class="col-lg-2 col-sm-3 col-12 position-sticky"
       style="max-height: calc(100vh - 5.5rem); top: 4.5rem; overflow-y: auto"
     >
       <slot name="sidebar" />

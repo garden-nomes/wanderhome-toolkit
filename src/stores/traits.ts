@@ -10,4 +10,15 @@ export const useTraitStore = defineStore("traits", {
     categories,
     traits: categories.flatMap((category) => category.traits),
   }),
+  getters: {
+    getOrThrow: (state) => (traitName: string) => {
+      const trait = state.traits.find((t) => t.name === traitName);
+
+      if (!trait) {
+        throw new Error(`Invalid trait name: ${traitName}`);
+      }
+
+      return trait;
+    },
+  },
 });

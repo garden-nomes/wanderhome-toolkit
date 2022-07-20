@@ -23,6 +23,7 @@
     "vue-router": "^4.1.2"
   },
   "devDependencies": {
+    "@types/bootstrap": "^5.1.13",
     "@types/dompurify": "^2.3.3",
     "@types/marked": "^4.0.3",
     "@types/node": "^18.0.0",

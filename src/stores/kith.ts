@@ -4,8 +4,12 @@ export interface Kith {
   uid: string;
   name: string;
   pronouns: string;
+  form: string;
   traits: string[];
   canAlways: string[];
+  relationships: string[];
+  details: string[];
+  notes: string[];
 }
 
 export const useKithStore = defineStore("kith", {
@@ -23,8 +27,12 @@ export const useKithStore = defineStore("kith", {
         uid: Math.random().toString(36).slice(2),
         name: "",
         pronouns: "",
+        form: "",
         traits: [],
         canAlways: [],
+        relationships: [],
+        details: [],
+        notes: [],
       };
 
       this.kith.push(kith);

@@ -11,4 +11,12 @@ app.use(router);
 app.use(createPinia());
 useCharacterStore().seed();
 
+app.directive(
+  "autofocus",
+  (el, { value }) =>
+    el instanceof HTMLElement &&
+    (typeof value === "undefined" || value) &&
+    el.focus()
+);
+
 app.mount("#app");
