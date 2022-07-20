@@ -46,6 +46,8 @@ const active = computed(() => route.hash === `#${id.value}`);
 <style lang="scss" scoped>
 .card {
   transition: border-color 150ms linear, box-shadow 150ms ease-in-out;
+  max-height: calc(100vh - 9rem);
+  overflow-y: auto;
 
   &.active {
     animation: 3s ease-in forwards flash;

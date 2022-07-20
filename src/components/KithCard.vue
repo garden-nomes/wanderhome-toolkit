@@ -3,12 +3,11 @@ import { ref, watch } from "vue";
 import { useKithStore } from "../stores/kith";
 import Card from "./Card.vue";
 import EditableList from "./EditableList.vue";
-import TraitSelector from "./TraitSelector.vue";
 import EditableText from "./EditableText.vue";
-import KithCanAlways from "./KithCanAlways.vue";
 import { useTraitStore } from "../stores/traits";
 import CategorizedItemToggler from "./CategorizedItemToggler.vue";
 import Icon from "./Icon.vue";
+import AddFromItems from "./AddFromItems.vue";
 
 const props = defineProps<{
   kithId: string;
@@ -25,25 +24,10 @@ watch(
 );
 
 const traits = useTraitStore();
-
-watch(
-  kith,
-  () => {
-    kith.value.canAlways = kith.value.canAlways.filter((option) =>
-      kith.value.traits.some((t) =>
-        traits.getOrThrow(t).canAlways.includes(option)
-      )
-    );
-  },
-  { deep: true }
-);
 </script>
 
 <template>
-  <card
-    :hash="`kith-${kith.uid}`"
-    class="kith-card"
-  >
+  <card :hash="`kith-${kith.uid}`">
     <div class="mb-3">
       <div class="row gx-2 mb-2">
         <div class="col-7">
@@ -86,11 +70,16 @@ watch(
       </div>
     </div>
 
-    <kith-can-always
+    <add-from-items
       v-model="kith.canAlways"
-      :traits="kith.traits"
+      :items="kith.traits.map((t) => traits.getOrThrow(t))"
+      selector="canAlways"
+      instructions="Choose 1-2 from each trait."
+      select-label="Select from traits"
       class="mb-3"
-    />
+    >
+      This kith can always
+    </add-from-items>
 
     <editable-list
       v-model="kith.relationships"
@@ -110,10 +99,4 @@ watch(
   </card>
 </template>
 
-<style lang="scss" scoped>
-.kith-card {
-  max-height: calc(100vh - 9rem);
-  width: 30rem;
-  overflow-y: auto;
-}
-</style>
+<style lang="scss" scoped></style>

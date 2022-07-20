@@ -1,14 +1,13 @@
 categories:
   - name: Comfortable
     natures:
-
       - name: Farm
         rule:
         description:
         canAlways:
           - Describe the calm mundanity of everyday life.
           - Reveal the thin margins people live on.
-          - 'Ask: “Hey, wanna help out?” Give them a token if they pitch in, in whatever way they can.'
+          - "Ask: “Hey, wanna help out?” Give them a token if they pitch in, in whatever way they can."
         aestheticElements:
           - Rapscallions And Merrymakers
           - Crops As Far As The Eye Can See
@@ -18,7 +17,8 @@ categories:
           - A Childhood Inspiration, Now Washed-Up And Pensive
           - Something Else Of Your Own Invention
         folklore:
-          - The Scarecrow That Walked Away     - The Rain Of A Hundred Days
+          - The Scarecrow That Walked Away
+          - The Rain Of A Hundred Days
           - The Apple-Girl And Her Loving Parents
           - Something Else Of Your Own Invention
 
@@ -28,13 +28,15 @@ categories:
         canAlways:
           - Describe the abundance all around us.
           - Threaten the health and vitality of the abundance.
-          - 'Ask: “What do you need most right now?” Give them a token if they can’t find it here.'
+          - "Ask: “What do you need most right now?” Give them a token if they can’t find it here."
         aestheticElements:
-          - Trees Overburdened With Fruit     - Outrageously Large Gourds
+          - Trees Overburdened With Fruit
+          - Outrageously Large Gourds
           - Prismatic Butterflies
           - Carefully-Trimmed Hedges
           - Irrigating Fountains
-          - A Friendly Soul Unfamiliar With The Hardship Of The World     - Something Else Of Your Own Invention
+          - A Friendly Soul Unfamiliar With The Hardship Of The World
+          - Something Else Of Your Own Invention
         folklore:
           - The Peach Tree’s Prophetic Blossom
           - The Old God In The Old Tree
@@ -68,15 +70,17 @@ categories:
         canAlways:
           - Describe the rhythm of daily life.
           - Show tensions caused by generational divides.
-          - 'Ask: “Are you willing to wait to get the answer you seek?” Give them a token if they’re here to wait. Do not tell them the answer either way.'
+          - "Ask: “Are you willing to wait to get the answer you seek?” Give them a token if they’re here to wait. Do not tell them the answer either way."
         aestheticElements:
           - The Hermit’s Cottage
           - Booming Bells
           - A Simple Herb Garden
-          - Scriptorium Filled With Knowledge     - Underground Catacombs
+          - Scriptorium Filled With Knowledge
+          - Underground Catacombs
         folklore:
           - The Generous Mentor And Her Betrayal
-          - The Janitor And The Secret Lessons He Taught     - The Alabaster Monk
+          - The Janitor And The Secret Lessons He Taught
+          - The Alabaster Monk
           - Something Else Of Your Own Invention
 
       - name: Tower
@@ -95,7 +99,8 @@ categories:
           - A ‡Grieving Soul Responsible For Keeping Everything In Working Order
           - Something Else Of Your Own Invention
         folklore:
-          - The Observatory Of The Lightning Dancers     - The First Of The Moth-Towers
+          - The Observatory Of The Lightning Dancers
+          - The First Of The Moth-Towers
           - The Ghost That Walks The Stairs
           - Something Else Of Your Own Invention
 
@@ -115,27 +120,28 @@ categories:
           - An Imaginative Craftsperson Who Made One of Your Treasures
           - Something Else Of Your Own Invention
         folklore:
-          - The Crafter Who Made Herself A Bride     - The Potter And The Goddess
+          - The Crafter Who Made Herself A Bride
+          - The Potter And The Goddess
           - The Neverending Tapestry
           - Something Else Of Your Own Invention
 
   - name: Verdant
     natures:
-
       - name: Field
         rule:
         description:
         canAlways:
           - Describe a gentle place to rest.
           - Show someone looking for something lost.
-          - 'Ask: “Can we look at the clouds together?” Give them a token if they say yes.'
+          - "Ask: “Can we look at the clouds together?” Give them a token if they say yes."
         aestheticElements:
           - Rustling Grass
           - A Babbling Brook
           - A Solitary Tree
           - Wild Plants And Herbs
           - Mossy Boulders
-          - A Friendly Shepherd And Their Flock     - Something Else Of Your Own Invention
+          - A Friendly Shepherd And Their Flock
+          - Something Else Of Your Own Invention
         folklore:
           - The Lucky Shepherd’s Friend
           - The Barrow-Ghosts
@@ -153,11 +159,13 @@ categories:
           - Chittering Mantises
           - Cautious Pillbugs
           - Massive Beetles
-          - WatchfulCaterpillars
+          - Watchful Caterpillars
           - Soaring Dragonflies
-          - A Feral And Remarkable Creature That No One Has Seen For Hundreds Of Years     - Something Else Of Your Own Invention
+          - A Feral And Remarkable Creature That No One Has Seen For Hundreds Of Years
+          - Something Else Of Your Own Invention
         folklore:
-          - The Meadow Of The Lightning Dancers     - The Last Of The Monarch Butterflies
+          - The Meadow Of The Lightning Dancers
+          - The Last Of The Monarch Butterflies
           - The Day The Woods Walked
           - Something Else Of Your Own Invention
 
@@ -188,10 +196,11 @@ categories:
         canAlways:
           - Describe what we stand in the shadows of.
           - Show a threat that’s up ahead.
-          - 'Ask: “What are you worried lies up ahead?” and give them a token if they’re right.'
+          - "Ask: “What are you worried lies up ahead?” and give them a token if they’re right."
         aestheticElements:
           - A Sheltered Valley
-          - Strange Piles Of Stones     - A Deep Gorge
+          - Strange Piles Of Stones
+          - A Deep Gorge
           - Scattered Fragments Of Civilization
           - Evidence Of Distant Strangeness
           - A Quiet Foreigner From Higher-Up
@@ -208,14 +217,15 @@ categories:
         canAlways:
           - Describe the water and all the tiny creatures that live in it.
           - Make matters worse through people’s inaction.
-          - 'Ask: “What have you been thinking about lately?” and give them a token for their thoughts.'
+          - "Ask: “What have you been thinking about lately?” and give them a token for their thoughts."
         aestheticElements:
           - Mossy Stones
           - A Hidden Grotto
           - A Glorious Waterfall
           - A Rare And Mysterious Flower
           - A Well-Worn Path
-          - A Watchful Creature Who Hides From The Outside     - Something Else Of Your Own Invention
+          - A Watchful Creature Who Hides From The Outside
+          - Something Else Of Your Own Invention
         folklore:
           - The Gifting Of The Heavenblade
           - The Teacher Who Lives Within The Rocks
@@ -234,7 +244,6 @@ categories:
 
   - name: Liminal
     natures:
-
       - name: Bridge
         rule:
         description:
@@ -248,7 +257,8 @@ categories:
           - A Heavy Fog
           - Wriggling Worms
           - A Sinking Feeling
-          - A Cunning And Tricksy Spirit Offering To Help     - Something Else Of Your Own Invention
+          - A Cunning And Tricksy Spirit Offering To Help
+          - Something Else Of Your Own Invention
         folklore:
           - The Treacherous Lights Deep In The Dark
           - The Traveling Bog
@@ -278,7 +288,7 @@ categories:
         canAlways:
           - Describe the ships and where they go.
           - Show the dangers of a fragile lifestyle.
-          - 'Ask: “Can I take you somewhere you’ve never been before?” Give them a token if they accept.'
+          - "Ask: “Can I take you somewhere you’ve never been before?” Give them a token if they accept."
         aestheticElements: []
         folklore: []
 
@@ -304,14 +314,13 @@ categories:
 
   - name: Sprawling
     natures:
-
       - name: Carnival
         rule:
         description:
         canAlways:
           - Describe the lights and the crowds.
           - Demand attention and adoration.
-          - 'Ask: “What will lure you deeper into the chaos?” Give them a token if they follow it.'
+          - "Ask: “What will lure you deeper into the chaos?” Give them a token if they follow it."
         aestheticElements: []
         folklore: []
 
@@ -330,7 +339,7 @@ categories:
         description:
         canAlways:
           - Describe the stifling heat.
-          - 'Raise tensions caused by intolerable conditions. Ask: “Will you forge what once was broken?” Give them a token if they try their best.'
+          - "Raise tensions caused by intolerable conditions. Ask: “Will you forge what once was broken?” Give them a token if they try their best."
         aestheticElements: []
         folklore: []
 
@@ -348,7 +357,7 @@ categories:
         description:
         canAlways:
           - Describe the stunning splendor of the world. Show the aftermath of a conflict between its two rulers.
-          - 'Ask: “What here makes you feel small?”'
+          - "Ask: “What here makes you feel small?”"
           - and give them a token.
         aestheticElements: []
         folklore: []
@@ -360,20 +369,19 @@ categories:
           - Describe the vast amount of knowledge still
           - left to learn.
           - Show conflict between differing philosophies or viewpoints.
-          - 'Ask: “Do you want to learn a difficult or painful truth?” Give them a token if they listen.'
+          - "Ask: “Do you want to learn a difficult or painful truth?” Give them a token if they listen."
         aestheticElements: []
         folklore: []
 
   - name: Lonely
     natures:
-
       - name: Cave
         rule:
         description:
         canAlways:
           - Describe the beauty of the deepest shadows of the world.
           - Swallow something into the dark.
-          - 'Ask: “Will you wander ever deeper?”'
+          - "Ask: “Will you wander ever deeper?”"
           - Give them a token if they say yes.
         aestheticElements: []
         folklore: []
@@ -384,7 +392,7 @@ categories:
         canAlways:
           - Describe the weight of the past.
           - Show someone disrespecting the history of this place.
-          - 'Ask: “Will you tell us a story no one else could tell?” Give them a token if they do.'
+          - "Ask: “Will you tell us a story no one else could tell?” Give them a token if they do."
         aestheticElements: []
         folklore: []
 
@@ -394,7 +402,7 @@ categories:
         canAlways:
           - Describe something too good to be true.
           - Show someone lost in their folly.
-          - 'Decide if something in front of someone is real, and then ask: “Do you believe what you see?” Give them a token if they’re wrong.'
+          - "Decide if something in front of someone is real, and then ask: “Do you believe what you see?” Give them a token if they’re wrong."
         aestheticElements: []
         folklore: []
 
@@ -404,7 +412,7 @@ categories:
         canAlways:
           - Describe what looks back.
           - Reflect back something someone didn’t want to see.
-          - 'Ask: “What is it about your reflection that unnerves you?” and give them a token.'
+          - "Ask: “What is it about your reflection that unnerves you?” and give them a token."
         aestheticElements: []
         folklore: []
 
@@ -414,7 +422,7 @@ categories:
         canAlways:
           - Describe what makes someone feel lonely.
           - Hint at something eerie.
-          - 'Ask: “What weighs on your mind?” Give them a token if they give a satisfying answer.'
+          - "Ask: “What weighs on your mind?” Give them a token if they give a satisfying answer."
         aestheticElements: []
         folklore: []
 
@@ -424,13 +432,12 @@ categories:
         canAlways:
           - Describe something massive, sublime, and uncaring.
           - Show the challenges caused by living with nature.
-          - 'Say: “Get out of the way!” and give everyone who does a token. Describe what enormous thundering force nearly strikes them down.'
+          - "Say: “Get out of the way!” and give everyone who does a token. Describe what enormous thundering force nearly strikes them down."
         aestheticElements: []
         folklore: []
 
   - name: Desolate
     natures:
-
       - name: Desert
         rule:
         description:
@@ -477,7 +484,7 @@ categories:
         canAlways:
           - Describe what used to be here before.
           - Show consequences for the actions of the past.
-          - 'Ask: “Do you know what once mattered here?” Give them a token if they don’t.'
+          - "Ask: “Do you know what once mattered here?” Give them a token if they don’t."
         aestheticElements: []
         folklore: []
 
@@ -487,6 +494,6 @@ categories:
         canAlways:
           - Describe the barren earth.
           - Keep something from growing or changing.
-          - 'Ask: “What do you see here that breaks your heart?” and give them a token.'
+          - "Ask: “What do you see here that breaks your heart?” and give them a token."
         aestheticElements: []
         folklore: []

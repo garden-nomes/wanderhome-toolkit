@@ -3,6 +3,8 @@ import { defineStore } from "pinia";
 export interface Place {
   uid: string;
   name: string;
+  animalFolk: string;
+  smallAndForgottenGods: string;
   natures: string[];
   aestheticElements: string[];
   folklore: string[];
@@ -20,9 +22,11 @@ export const usePlacesStore = defineStore("places", {
   },
   actions: {
     createPlace() {
-      const place = {
+      const place: Place = {
         uid: Math.random().toString(36).slice(2),
         name: "",
+        animalFolk: "",
+        smallAndForgottenGods: "",
         natures: [],
         aestheticElements: [],
         folklore: [],

@@ -46,6 +46,7 @@ const placeAnchor = (place: Place) => `place-${place.uid}`;
       <p class="h6 px-3 mb-1">
         Kith
       </p>
+
       <ul class="nav flex-column mb-2">
         <li
           v-for="kith in kithList"
@@ -58,6 +59,26 @@ const placeAnchor = (place: Place) => `place-${place.uid}`;
             @click.prevent
           >
             {{ kith.name || "(unnamed)" }}
+          </router-link>
+        </li>
+      </ul>
+
+      <p class="h6 px-3 mb-1">
+        Places
+      </p>
+
+      <ul class="nav flex-column mb-2">
+        <li
+          v-for="place in places"
+          :key="place.uid"
+          class="nav-item"
+        >
+          <router-link
+            class="nav-link py-0"
+            :to="`#${placeAnchor(place)}`"
+            @click.prevent
+          >
+            {{ place.name || "(unnamed)" }}
           </router-link>
         </li>
       </ul>
@@ -84,11 +105,10 @@ const placeAnchor = (place: Place) => `place-${place.uid}`;
       <div
         v-for="kith in kithList"
         :key="kith.uid"
-        class="col-auto"
+        class="col-lg-6"
       >
         <kith-card
           :kith-id="kith.uid"
-          class="col-3"
           @remove="removeKith(kith.uid)"
         />
 
