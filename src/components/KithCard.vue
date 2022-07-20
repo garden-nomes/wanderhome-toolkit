@@ -31,7 +31,10 @@ watch(
 </script>
 
 <template>
-  <card :hash="`kith-${kith.uid}`">
+  <card
+    :hash="`kith-${kith.uid}`"
+    class="kith-card"
+  >
     <div class="mb-3">
       <div class="row gx-2 mb-2">
         <div class="col-7">
@@ -92,3 +95,11 @@ watch(
     />
   </card>
 </template>
+
+<style lang="scss" scoped>
+.kith-card {
+  max-height: calc(100vh - 9rem);
+  width: 30rem;
+  overflow-y: auto;
+}
+</style>

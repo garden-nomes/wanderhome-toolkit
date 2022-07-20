@@ -7,7 +7,7 @@ export default defineComponent({
 </script>
 
 <template>
-  <nav class="navbar navbar-expand fixed-top bg-light navbar-light">
+  <nav class="navbar navbar-expand bg-light navbar-light">
     <div class="container-fluid justify-content-start">
       <span class="navbar-brand luminari">Wanderhome Toolkit</span>
 
@@ -37,10 +37,7 @@ export default defineComponent({
     </div>
   </nav>
 
-  <div
-    class="container-fluid pb-3"
-    style="padding-top: 4.5rem"
-  >
+  <div class="container-fluid py-3">
     <router-view />
   </div>
 </template>

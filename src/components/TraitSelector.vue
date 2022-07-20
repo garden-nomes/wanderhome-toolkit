@@ -36,7 +36,7 @@ const addRandom = () => {
 <template>
   <popover
     button-class="btn btn-minimal w-100 "
-    placement="auto"
+    placement="bottom"
     :popover-attrs="{ style: 'width: 40rem; max-width: unset' }"
   >
     <template #button>

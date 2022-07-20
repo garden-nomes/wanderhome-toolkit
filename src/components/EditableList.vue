@@ -68,11 +68,10 @@ const addItem = (value: string) => {
         </div>
       </li>
 
-      <li class="row g-0">
+      <li>
         <editable-text
           model-value=""
           :label="addLabel"
-          class="col-10"
           @update:model-value="addItem"
         />
       </li>

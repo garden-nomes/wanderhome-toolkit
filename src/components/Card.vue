@@ -20,27 +20,25 @@ const active = computed(() => route.hash === `#${id.value}`);
 </script>
 
 <template>
-  <div class="d-flex col-lg-6 col-12">
+  <div
+    :id="id"
+    :class="active && 'active'"
+    class="card flex-fill shadow-sm"
+  >
     <div
-      :id="id"
-      :class="active ? 'border-primary' : ''"
-      class="card flex-fill shadow-sm"
+      v-if="title"
+      class="card-header"
     >
-      <div
-        v-if="title"
-        class="card-header"
-      >
-        <div class="card-title mb-0">
-          {{ title }}
-        </div>
+      <div class="card-title mb-0">
+        {{ title }}
       </div>
+    </div>
 
-      <div
-        v-if="$slots.default"
-        class="card-body"
-      >
-        <slot />
-      </div>
+    <div
+      v-if="$slots.default"
+      class="card-body"
+    >
+      <slot />
     </div>
   </div>
 </template>
@@ -48,5 +46,15 @@ const active = computed(() => route.hash === `#${id.value}`);
 <style lang="scss" scoped>
 .card {
   transition: border-color 150ms linear, box-shadow 150ms ease-in-out;
+
+  &.active {
+    animation: 3s ease-in forwards flash;
+  }
+
+  @keyframes flash {
+    from {
+      border-color: var(--bs-primary);
+    }
+  }
 }
 </style>

@@ -61,15 +61,18 @@ const getId = (kith: Kith) => `kith-${kith.uid}`;
       Kith
     </p>
 
-    <card-list>
-      <kith-card
+    <div class="row g-3">
+      <div
         v-for="kith in kithList"
         :key="kith.uid"
-        :kith-id="kith.uid"
-        @remove="removeKith(kith.uid)"
-      />
-    </card-list>
+        class="col-auto"
+      >
+        <kith-card
+          :kith-id="kith.uid"
+          class="col-3"
+          @remove="removeKith(kith.uid)"
+        />
+      </div>
+    </div>
   </sticky-sidebar-view>
 </template>
-
-<style scoped lang="scss"></style>

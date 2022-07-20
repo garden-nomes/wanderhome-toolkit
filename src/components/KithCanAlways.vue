@@ -29,7 +29,7 @@ const deselect = (option: string) =>
 const toggle = (option: string) =>
   isSelected(option) ? deselect(option) : select(option);
 
-const isExpanded = ref(true);
+const isExpanded = ref(false);
 </script>
 
 <template>

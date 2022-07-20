@@ -4,7 +4,7 @@ export default createRouter({
   history: createWebHashHistory(),
   scrollBehavior(to) {
     if (to.hash) {
-      return { el: to.hash, behavior: "smooth", top: 72 };
+      return { el: to.hash, behavior: "smooth", top: 48 };
     }
   },
   routes: [
