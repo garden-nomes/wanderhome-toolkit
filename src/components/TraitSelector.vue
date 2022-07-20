@@ -1,0 +1,62 @@
+<script lang="ts" setup>
+import Popover from "./Popover.vue";
+import { useTraitStore } from "../stores/traits";
+
+const props = defineProps<{
+  modelValue: string[];
+}>();
+
+const emit = defineEmits<{
+  (e: "update:modelValue", value: string[]): void;
+}>();
+
+const { categories } = useTraitStore();
+
+const isAdded = (trait: string) => props.modelValue.some((t) => t === trait);
+
+const toggle = (trait: string) =>
+  isAdded(trait)
+    ? emit(
+        "update:modelValue",
+        props.modelValue.filter((t) => t !== trait)
+      )
+    : emit("update:modelValue", [...new Set([...props.modelValue, trait])]);
+</script>
+
+<template>
+  <popover
+    button-class="btn btn-outline-primary btn-sm"
+    button-label="Add traits"
+    :popover-attrs="{ style: 'width: 40rem; max-width: unset' }"
+  >
+    <div class="row gx-1 gy-2">
+      <div
+        v-for="category in categories"
+        :key="category.name"
+        class="col-12 col-lg-6"
+        :class="category.traits.length > 6 && 'col-lg-12'"
+      >
+        <div class="small luminari border-bottom mx-3 mb-2">
+          {{ category.name }}
+        </div>
+
+        <ul class="list-unstyled row g-1 mb-0">
+          <li
+            v-for="trait in category.traits"
+            :key="trait.name"
+            :class="category.traits.length > 6 ? 'col-sm-2' : 'col-sm-4'"
+          >
+            <button
+              type="button"
+              class="dropdown-item rounded small"
+              :class="isAdded(trait.name) && 'active'"
+              @click="toggle(trait.name)"
+            >
+              {{ trait.name }}
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </popover>
+</template>

@@ -4,8 +4,9 @@ import { useKithStore } from "../stores/kith";
 import { Trait, useTraitStore } from "../stores/traits";
 import Card from "./Card.vue";
 import FormGroup from "./FormGroup.vue";
-import Dropdown from "./Dropdown.vue";
+import Popover from "./Popover.vue";
 import EditableList from "./EditableList.vue";
+import TraitSelector from "./TraitSelector.vue";
 
 const props = defineProps<{
   kithId: string;
@@ -75,43 +76,7 @@ const onCanAlwaysCheckboxChange = (event: Event, option: string) => {
       />
 
       <div class="mb-3">
-        <dropdown
-          button-class="btn btn-primary"
-          button-label="Select 2-3 traits"
-          :menu-attrs="{
-            style: 'width: 25rem; max-height: 30rem; overflow-y: auto',
-          }"
-        >
-          <div
-            v-for="category in traitCategories"
-            :key="category.name"
-          >
-            <div class="dropdown-header font-ui">
-              {{ category.name }}
-            </div>
-
-            <ul class="list-unstyled row g-1 mb-0">
-              <li
-                v-for="trait in category.traits"
-                :key="trait.name"
-                class="col-sm-4"
-              >
-                <button
-                  type="button"
-                  class="dropdown-item rounded small"
-                  :class="isTraitAdded(trait) && 'active'"
-                  @click="
-                    isTraitAdded(trait)
-                      ? removeTrait(trait.name)
-                      : addTrait(trait)
-                  "
-                >
-                  {{ trait.name }}
-                </button>
-              </li>
-            </ul>
-          </div>
-        </dropdown>
+        <trait-selector v-model="kith.traits" />
       </div>
 
       <ul class="list-unstyled mb-3">
