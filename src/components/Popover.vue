@@ -1,13 +1,16 @@
 <script lang="ts" setup>
 import { HTMLAttributes, ref } from "vue";
+import { onClickOutside } from "@vueuse/core";
 import uid from "../lib/uid";
 import usePopper from "../lib/use-popper";
+import { Placement } from "@popperjs/core";
 
-defineProps<{
+const props = defineProps<{
   buttonLabel?: string;
   buttonClass?: string;
   popoverAttrs?: HTMLAttributes;
   popoverBodyAttrs?: HTMLAttributes;
+  placement?: Placement;
 }>();
 
 const id = `dropdown-${uid()}`;
@@ -16,9 +19,16 @@ const buttonEl = ref<HTMLElement>();
 const menuEl = ref<HTMLElement>();
 
 const isOpen = ref(false);
+onClickOutside(
+  menuEl,
+  () => {
+    isOpen.value = false;
+  },
+  { ignore: [buttonEl] }
+);
 
 usePopper(isOpen, buttonEl, menuEl, {
-  placement: "right",
+  placement: props.placement,
   modifiers: [
     { name: "flip" },
     {

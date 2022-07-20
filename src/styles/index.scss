@@ -6,10 +6,6 @@ $font-family-serif: "Joan", Constantia, "Lucida Bright", Lucidabright,
 $font-ui: var(--bs-font-sans-serif);
 $font-family-base: $font-family-serif;
 
-@import "bootstrap/scss/bootstrap";
-
-.btn,
-.nav-link,
 .font-ui {
   font-family: $font-ui;
 }
@@ -17,4 +13,17 @@ $font-family-base: $font-family-serif;
 .luminari {
   font-family: "Luminari";
   src: local("Luminari"), url("Luminari-Regular.woff") format("woff");
+}
+
+@import "bootstrap/scss/bootstrap";
+@import "bootstrap-icons/font/bootstrap-icons.scss";
+
+.btn-minimal {
+  color: $gray-600;
+  text-decoration: underline;
+
+  &:hover {
+    background-color: $gray-100;
+    color: $body-color;
+  }
 }

@@ -1,9 +1,13 @@
 <script lang="ts" setup>
 import { ref, watch } from "vue";
 import uid, { UID } from "../lib/uid";
+import EditableText from "./EditableText.vue";
+import Icon from "./Icon.vue";
 
 const props = defineProps<{
   modelValue: string[];
+  label: string;
+  addLabel: string;
 }>();
 
 const emit = defineEmits<{
@@ -22,93 +26,58 @@ watch(
   { deep: true }
 );
 
-const currentlyEditing = ref<UID | null>(null);
-
-const edit = (id: UID) => {
-  currentlyEditing.value = id;
+const removeItem = (id: UID) => {
+  localModel.value = localModel.value.filter((item) => item.id !== id);
 };
 
-const remove = (id: UID) => {
-  const index = localModel.value.findIndex((x) => x.id === id);
-  localModel.value.splice(index, 1);
-};
-
-const add = () => {
-  const id = uid();
-  localModel.value.push({ id, value: "" });
-  edit(id);
-};
-
-watch(currentlyEditing, (_, oldValue) => {
-  if (
-    oldValue !== null &&
-    localModel.value.find((x) => x.id === oldValue)?.value.length === 0
-  ) {
-    remove(oldValue);
+const addItem = (value: string) => {
+  if (value.length) {
+    const id = uid();
+    localModel.value = [...localModel.value, { id, value }];
   }
-});
+};
 </script>
 
 <template>
-  <ul>
-    <template
-      v-for="item in localModel"
-      :key="item.id"
-    >
+  <div class="mb-1">
+    <p class="luminari mb-0">
+      {{ label }}
+    </p>
+
+    <ul class="list-unstyled">
       <li
-        v-if="currentlyEditing !== item.id"
-        class=""
+        v-for="item in localModel"
+        :key="item.id"
+        class="row mb-1 g-0"
       >
-        <span>{{ item.value }}</span>
-
-        <span class="show-on-hover ms-2">
-          <button
-            type="button"
-            class="btn btn-sm btn-link text-secondary p-0 me-2"
-            @click="currentlyEditing = item.id"
-          >
-            edit
-          </button>
-          <button
-            type="button"
-            class="btn btn-sm btn-link text-secondary p-0"
-            @click="remove(item.id)"
-          >
-            remove
-          </button>
-        </span>
-      </li>
-
-      <li v-else>
-        <textarea
+        <editable-text
           v-model="item.value"
-          v-autofocus
-          class="form-control form-control-sm rounded-0 rounded-top border-bottom-0"
-          rows="3"
-          aria-label="Detail"
+          label="item"
+          class="col-10"
         />
 
-        <div class="text-right">
+        <div class="col">
           <button
             type="button"
-            class="btn btn-outline-secondary rounded-0 rounded-bottom btn-sm w-100"
-            @click="currentlyEditing = null"
+            class="btn btn-link text-secondary w-100"
+            aria-label="remove"
+            @click="removeItem(item.id)"
           >
-            done
+            <icon name="trash" />
           </button>
         </div>
       </li>
-    </template>
-    <li>
-      <button
-        type="button"
-        class="btn btn-link p-0 btn-sm"
-        @click="add"
-      >
-        add
-      </button>
-    </li>
-  </ul>
+
+      <li class="row g-0">
+        <editable-text
+          model-value=""
+          :label="addLabel"
+          class="col-10"
+          @update:model-value="addItem"
+        />
+      </li>
+    </ul>
+  </div>
 </template>
 
 <style lang="scss" scoped>
@@ -121,5 +90,9 @@ watch(currentlyEditing, (_, oldValue) => {
   *:hover > .show-on-hover {
     opacity: 1;
   }
+}
+
+.hover-bg-light:hover {
+  background-color: var(--bs-light);
 }
 </style>
