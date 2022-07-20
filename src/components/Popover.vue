@@ -7,7 +7,6 @@ import { Placement } from "@popperjs/core";
 
 const props = defineProps<{
   buttonLabel?: string;
-  buttonClass?: string;
   popoverAttrs?: HTMLAttributes;
   popoverBodyAttrs?: HTMLAttributes;
   placement?: Placement;
@@ -44,38 +43,36 @@ usePopper(isOpen, buttonEl, menuEl, {
 </script>
 
 <template>
-  <div class="dropdown">
-    <button
-      :id="id"
-      ref="buttonEl"
-      type="button"
-      :class="buttonClass || 'btn btn-primary'"
-      @click="isOpen = !isOpen"
-    >
-      <slot name="button">
-        {{ buttonLabel }}
-      </slot>
-    </button>
+  <button
+    :id="id"
+    ref="buttonEl"
+    type="button"
+    v-bind="$attrs"
+    @click="isOpen = !isOpen"
+  >
+    <slot name="button">
+      {{ buttonLabel }}
+    </slot>
+  </button>
 
-    <teleport to="body">
+  <teleport to="body">
+    <div
+      v-if="isOpen"
+      ref="menuEl"
+      class="popover bs-popover-auto"
+      :aria-labelledby="id"
+      role="tooltip"
+      v-bind="popoverAttrs"
+    >
+      <div class="popover-arrow" />
       <div
-        v-if="isOpen"
-        ref="menuEl"
-        class="popover bs-popover-auto"
-        :aria-labelledby="id"
-        role="tooltip"
-        v-bind="popoverAttrs"
+        class="popover-body"
+        v-bind="popoverBodyAttrs"
       >
-        <div class="popover-arrow" />
-        <div
-          class="popover-body"
-          v-bind="popoverBodyAttrs"
-        >
-          <slot />
-        </div>
+        <slot />
       </div>
-    </teleport>
-  </div>
+    </div>
+  </teleport>
 </template>
 
 <style lang="scss" scoped>

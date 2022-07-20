@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { computed, watch } from "vue";
+import { ref, watch } from "vue";
 import { useKithStore } from "../stores/kith";
 import Card from "./Card.vue";
 import EditableList from "./EditableList.vue";
@@ -7,13 +7,22 @@ import TraitSelector from "./TraitSelector.vue";
 import EditableText from "./EditableText.vue";
 import KithCanAlways from "./KithCanAlways.vue";
 import { useTraitStore } from "../stores/traits";
+import CategorizedItemToggler from "./CategorizedItemToggler.vue";
+import Icon from "./Icon.vue";
 
 const props = defineProps<{
   kithId: string;
 }>();
 
 const { getOrThrow } = useKithStore();
-const kith = computed(() => getOrThrow(props.kithId));
+
+const kith = ref(getOrThrow(props.kithId));
+watch(
+  () => props.kithId,
+  () => {
+    kith.value = getOrThrow(props.kithId);
+  }
+);
 
 const traits = useTraitStore();
 
@@ -66,10 +75,15 @@ watch(
         <div>{{ kith.traits.join(", ") }}</div>
       </div>
 
-      <trait-selector
-        v-model="kith.traits"
-        class="ms-auto"
-      />
+      <div class="ms-auto">
+        <categorized-item-toggler
+          v-model="kith.traits"
+          :categories="traits.categories"
+          class="btn btn-minimal"
+        >
+          <icon name="plus" />Select traits
+        </categorized-item-toggler>
+      </div>
     </div>
 
     <kith-can-always
