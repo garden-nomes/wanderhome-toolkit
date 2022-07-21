@@ -30,7 +30,7 @@ const traits = useTraitStore();
   <card :hash="`kith-${kith.uid}`">
     <div class="row mb-3">
       <div class="col-4 d-flex justify-content-center align-items-center">
-        <h2 class="luminari">
+        <h2 class="luminari fancy-cap">
           Kith
         </h2>
       </div>
@@ -61,20 +61,35 @@ const traits = useTraitStore();
 
     <div class="d-flex justify-content-between mb-3">
       <div>
-        <div class="luminari">
-          Traits
-        </div>
-        <div>{{ kith.traits.join(", ") }}</div>
-      </div>
+        <div class="d-flex">
+          <div class="luminari">
+            Traits
+          </div>
 
-      <div class="ms-auto">
-        <categorized-item-toggler
-          v-model="kith.traits"
-          :categories="traits.categories"
-          class="btn btn-minimal"
-        >
-          <icon name="plus" />Select traits
-        </categorized-item-toggler>
+          <div class="ms-auto">
+            <categorized-item-toggler
+              v-model="kith.traits"
+              :categories="traits.categories"
+              class="btn btn-minimal"
+            >
+              <icon name="plus" />Select traits
+            </categorized-item-toggler>
+          </div>
+        </div>
+        <ul class="list-unstyled mb-0 row">
+          <li
+            v-for="trait in kith.traits"
+            :key="trait"
+            class="mb-2 col-6"
+          >
+            <div class="fw-bolder border-bottom mb-1">
+              {{ traits.getOrThrow(trait).name }}
+            </div>
+            <p class="small text-secondary mb-0">
+              {{ traits.getOrThrow(trait).description }}
+            </p>
+          </li>
+        </ul>
       </div>
     </div>
 

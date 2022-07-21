@@ -18,6 +18,19 @@ $font-weight-bolder: 600;
   src: local("Luminari"), url("Luminari-Regular.woff") format("woff");
 }
 
+.ruritania {
+  font-family: "Ruritania";
+  src: local("Ruritania"), url("Ruritania.ttf") format("ttf");
+}
+
+.fancy-cap {
+  padding-top: 1rem;
+  &::first-letter {
+    @extend .ruritania;
+    font-size: 3rem;
+  }
+}
+
 @import "bootstrap/scss/bootstrap";
 @import "bootstrap-icons/font/bootstrap-icons.scss";
 

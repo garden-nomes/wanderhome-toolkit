@@ -30,7 +30,7 @@ const natures = useNaturesStore();
   <card :hash="`place-${place.uid}`">
     <div class="row">
       <div class="col-3">
-        <h2 class="luminari">
+        <h2 class="luminari fancy-cap">
           Place
         </h2>
         <p class="fst-italic">
