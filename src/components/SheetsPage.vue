@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import StickySidebarView from "./StickySidebarView.vue";
+import { resetStore } from "../stores/reset-plugin";
 import { Kith, useKithStore } from "../stores/kith";
 import { useRouter } from "vue-router";
 import KithCard from "./KithCard.vue";
@@ -7,31 +8,31 @@ import Icon from "./Icon.vue";
 import { Place, usePlacesStore } from "../stores/places";
 import PlaceCard from "./PlaceCard.vue";
 
-const { kith: kithList, createKith } = useKithStore();
-const { places, createPlace } = usePlacesStore();
+const kithStore = useKithStore();
+const placeStore = usePlacesStore();
 
 const router = useRouter();
 
 const addKith = () => {
-  const kith = createKith();
+  const kith = kithStore.createKith();
   router.push({ hash: `#${kithAnchor(kith)}` });
 };
 
 const removeKith = (id: string) => {
-  kithList.splice(
-    kithList.findIndex((k) => k.uid === id),
+  kithStore.kith.splice(
+    kithStore.kith.findIndex((k) => k.uid === id),
     1
   );
 };
 
 const addPlace = () => {
-  const place = createPlace();
+  const place = placeStore.createPlace();
   router.push({ hash: `#${placeAnchor(place)}` });
 };
 
 const removePlace = (id: string) => {
-  places.splice(
-    places.findIndex((k) => k.uid === id),
+  placeStore.places.splice(
+    placeStore.places.findIndex((k) => k.uid === id),
     1
   );
 };
@@ -49,7 +50,7 @@ const placeAnchor = (place: Place) => `place-${place.uid}`;
 
       <ul class="list-unstyled mb-2">
         <li
-          v-for="kith in kithList"
+          v-for="kith in kithStore.kith"
           :key="kith.uid"
         >
           <router-link
@@ -68,7 +69,7 @@ const placeAnchor = (place: Place) => `place-${place.uid}`;
 
       <ul class="list-unstyled mb-2">
         <li
-          v-for="place in places"
+          v-for="place in placeStore.places"
           :key="place.uid"
         >
           <router-link
@@ -80,6 +81,13 @@ const placeAnchor = (place: Place) => `place-${place.uid}`;
           </router-link>
         </li>
       </ul>
+
+      <button
+        class="btn btn-minimal mb-3"
+        @click="resetStore"
+      >
+        Reset
+      </button>
     </template>
 
     <div class="d-flex align-items-end mb-3">
@@ -104,42 +112,21 @@ const placeAnchor = (place: Place) => `place-${place.uid}`;
 
     <div class="row g-3 mb-3">
       <div
-        v-for="kith in kithList"
+        v-for="kith in kithStore.kith"
         :key="kith.uid"
         class="col-lg-6"
       >
-        <kith-card
-          :kith-id="kith.uid"
-          @remove="removeKith(kith.uid)"
-        />
-
-        <div class="d-flex justify-content-center">
-          <button
-            class="btn btn-minimal"
-            @click="removeKith(kith.uid)"
-          >
-            remove
-          </button>
-        </div>
+        <kith-card :kith-id="kith.uid" />
       </div>
     </div>
 
     <div class="row g-3">
       <div
-        v-for="place in places"
+        v-for="place in placeStore.places"
         :key="place.uid"
         class="col-12"
       >
         <place-card :id="place.uid" />
-
-        <div class="d-flex justify-content-center">
-          <button
-            class="btn btn-minimal"
-            @click="removePlace(place.uid)"
-          >
-            remove
-          </button>
-        </div>
       </div>
     </div>
   </sticky-sidebar-view>

@@ -1,13 +1,9 @@
-<script lang="ts">
-import { defineComponent } from "vue";
-
-export default defineComponent({
-  name: "app",
-});
+<script lang="ts" setup>
+import { resetStore } from "./stores/reset-plugin";
 </script>
 
 <template>
-  <nav class="navbar navbar-expand bg-light navbar-light">
+  <!-- <nav class="navbar navbar-expand bg-light navbar-light">
     <div class="container-fluid justify-content-start">
       <span class="navbar-brand luminari">Wanderhome Toolkit</span>
 
@@ -35,7 +31,7 @@ export default defineComponent({
         </ul>
       </div>
     </div>
-  </nav>
+  </nav> -->
 
   <div class="container-fluid py-3">
     <router-view />

@@ -46,7 +46,7 @@ const active = computed(() => route.hash === `#${id.value}`);
 <style lang="scss" scoped>
 .card {
   transition: border-color 150ms linear, box-shadow 150ms ease-in-out;
-  height: calc(100vh - 9rem);
+  max-height: calc(100vh - 4rem);
   overflow-y: auto;
 
   &.active {
