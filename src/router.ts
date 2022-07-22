@@ -10,14 +10,6 @@ export default createRouter({
   routes: [
     {
       path: "/",
-      redirect: "/sheets",
-    },
-    // {
-    //   path: "/traits",
-    //   component: () => import("./components/TraitList.vue"),
-    // },
-    {
-      path: "/sheets",
       component: () => import("./components/SheetsPage.vue"),
     },
   ],
