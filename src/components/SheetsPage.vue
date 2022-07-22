@@ -8,6 +8,7 @@ import sheetTypes, { SheetType } from "../lib/sheet-definitions";
 import { computed } from "vue";
 import { keys, orderBy, values, capitalize } from "lodash-es";
 import Sheet from "./Sheet.vue";
+import pluralize from "../lib/pluralize";
 
 const sheetsStore = useSheetsStore();
 const router = useRouter();
@@ -39,7 +40,7 @@ const orderedSheetsByType = computed(() =>
         :key="type"
       >
         <p class="h6 px-2 mb-1">
-          {{ capitalize(type) }} Sheets
+          {{ capitalize(pluralize(type)) }}
         </p>
 
         <ul class="list-unstyled mb-2">
