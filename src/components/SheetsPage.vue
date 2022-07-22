@@ -9,6 +9,7 @@ import { computed } from "vue";
 import { keys, orderBy, values, capitalize } from "lodash-es";
 import Sheet from "./Sheet.vue";
 import pluralize from "../lib/pluralize";
+import { runTest } from "../lib/test-pdf-lib";
 
 const sheetsStore = useSheetsStore();
 const router = useRouter();
@@ -30,6 +31,8 @@ const orderedSheetsByType = computed(() =>
     }))
     .filter((group) => !!group.sheets.length)
 );
+
+runTest();
 </script>
 
 <template>
