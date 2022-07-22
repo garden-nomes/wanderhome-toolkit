@@ -33,7 +33,7 @@ const traits = useTraitStore();
     </div>
 
     <div class="col">
-      <div class="row gx-2 justify-content-end">
+      <div class="row gx-0 justify-content-end">
         <div class="col-12">
           <editable-text
             v-model="fields.name"
@@ -50,44 +50,44 @@ const traits = useTraitStore();
           <editable-text
             v-model="fields.form"
             label="Animal form"
+            align-end
           />
         </div>
       </div>
     </div>
   </div>
 
-  <div class="d-flex justify-content-between mb-3">
-    <div>
-      <div class="d-flex">
-        <div class="luminari">
-          Traits
-        </div>
-
-        <div class="ms-auto">
-          <categorized-item-toggler
-            v-model="fields.traits"
-            :categories="traits.categories"
-            class="btn btn-minimal"
-          >
-            <icon name="plus" />Select traits
-          </categorized-item-toggler>
-        </div>
+  <div class="mb-3">
+    <div class="d-flex align-items-baseline">
+      <div class="luminari">
+        Traits
       </div>
-      <ul class="list-unstyled mb-0 row">
-        <li
-          v-for="trait in fields.traits"
-          :key="trait"
-          class="mb-2 col-6"
+
+      <div class="ms-auto">
+        <categorized-item-toggler
+          v-model="fields.traits"
+          :categories="traits.categories"
+          class="btn btn-minimal"
         >
-          <div class="fw-bolder border-bottom mb-1">
-            {{ traits.getOrThrow(trait).name }}
-          </div>
-          <p class="small text-secondary mb-0">
-            {{ traits.getOrThrow(trait).description }}
-          </p>
-        </li>
-      </ul>
+          <icon name="plus" />Select traits
+        </categorized-item-toggler>
+      </div>
     </div>
+
+    <ul class="list-unstyled mb-0 row">
+      <li
+        v-for="trait in fields.traits"
+        :key="trait"
+        class="mb-2 col-6"
+      >
+        <div class="fw-bolder border-bottom mb-1">
+          {{ traits.getOrThrow(trait).name }}
+        </div>
+        <p class="small text-secondary mb-0">
+          {{ traits.getOrThrow(trait).description }}
+        </p>
+      </li>
+    </ul>
   </div>
 
   <div class="row">

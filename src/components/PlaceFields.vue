@@ -146,18 +146,18 @@ const natures = useNaturesStore();
         </div>
       </div>
       <div class="row gx-2">
-        <div class="col-8">
-          <editable-list
-            v-model="fields.notes"
-            label="Notes"
-            add-label="Add note"
-          />
-        </div>
         <div class="col">
           <editable-list
             :model-value="[]"
             label="Notable Kith"
             add-label="Add kith"
+          />
+        </div>
+        <div class="col-8">
+          <editable-list
+            v-model="fields.notes"
+            label="Notes"
+            add-label="Add note"
           />
         </div>
       </div>

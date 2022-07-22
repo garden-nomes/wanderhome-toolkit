@@ -65,12 +65,14 @@ const fields = proxyObject(
           <editable-text
             v-model="fields.pronouns"
             label="Pronouns"
+            align-end
           />
         </div>
         <div class="col-3">
           <editable-text
             v-model="fields.animalForm"
             label="Animal Form"
+            align-end
           />
         </div>
       </div>
@@ -85,12 +87,14 @@ const fields = proxyObject(
           <editable-text
             v-model="fields.playerName"
             label="Player Name"
+            align-end
           />
         </div>
         <div class="col-4">
           <editable-text
             v-model="fields.playerPronouns"
             label="Player Pronouns"
+            align-end
           />
         </div>
       </div>

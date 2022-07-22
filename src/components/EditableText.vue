@@ -5,6 +5,7 @@ import Icon from "./Icon.vue";
 const props = defineProps<{
   modelValue: string;
   label: string;
+  alignEnd?: boolean;
 }>();
 
 const emit = defineEmits<{
@@ -44,6 +45,7 @@ watch(inputEl, (value) => (value as HTMLInputElement)?.select());
       v-model.trim="input"
       type="text"
       class="form-control"
+      :class="alignEnd && 'text-end'"
       :placeholder="label"
       :aria-label="label"
       @keydown.enter="update"
@@ -56,21 +58,26 @@ watch(inputEl, (value) => (value as HTMLInputElement)?.select());
     ref="textEl"
     role="button"
     tabindex="0"
-    class="editable-text clearfix"
-    :class="modelValue.length === 0 && 'editable-text-placeholder'"
+    class="editable-text position-relative"
+    :class="{
+      'editable-text-placeholder': modelValue.length === 0,
+      'text-end': alignEnd,
+    }"
     @click="edit"
     @keydown.enter="edit"
     @keydown.space.prevent="edit"
   >
-    {{ modelValue || label }}
-
-    <div class="float-end show-on-hover">
+    <div
+      class="show-on-hover small position-absolute px-3"
+      :class="alignEnd ? 'start-0' : 'end-0'"
+    >
       <icon
         name="pencil-fill"
         class="text-secondary"
         aria-label="edit"
       />
     </div>
+    {{ modelValue || label }}
   </div>
 </template>
 

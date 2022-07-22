@@ -36,6 +36,7 @@ const season = proxyObject(
         v-model="season.year"
         label="Year"
         class="text-end"
+        align-end
       />
     </div>
   </div>
@@ -54,6 +55,7 @@ const season = proxyObject(
           <editable-text
             v-model="season.firstMonthSpentAt"
             label="Spent at the Place"
+            align-end
           />
         </div>
       </div>
@@ -100,6 +102,7 @@ const season = proxyObject(
           <editable-text
             v-model="season.secondMonthSpentAt"
             label="Spent at the Place"
+            align-end
           />
         </div>
       </div>
