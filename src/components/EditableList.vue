@@ -4,11 +4,14 @@ import uid, { UID } from "../lib/uid";
 import EditableText from "./EditableText.vue";
 import Icon from "./Icon.vue";
 
-const props = defineProps<{
-  modelValue: string[];
-  label: string;
-  addLabel: string;
-}>();
+const props = withDefaults(
+  defineProps<{
+    modelValue: string[];
+    label: string;
+    addLabel: string;
+  }>(),
+  { addLabel: "Add item" }
+);
 
 const emit = defineEmits<{
   (e: "update:modelValue", value: string[]): void;

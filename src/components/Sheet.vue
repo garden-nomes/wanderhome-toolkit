@@ -7,6 +7,7 @@ import Card from "./Card.vue";
 import KithFields from "./KithFields.vue";
 import CharacterFields from "./CharacterFields.vue";
 import PlaceFields from "./PlaceFields.vue";
+import SeasonFields from "./SeasonFields.vue";
 
 const props = defineProps<{
   sheetId: UID;
@@ -21,6 +22,7 @@ const componentsByType = {
   kith: KithFields,
   character: CharacterFields,
   place: PlaceFields,
+  season: SeasonFields,
 };
 
 const sheetType = computed(() => sheetTypes[sheet.value.type as SheetType]);

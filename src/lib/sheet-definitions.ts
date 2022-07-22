@@ -54,6 +54,28 @@ const sheetTypes = {
       notes: [] as string[],
     }),
   }),
+  season: defineSheetType({
+    columns: 6,
+    defaultValues: () => ({
+      name: "",
+      year: "",
+      firstMonthName: "",
+      firstMonthSpentAt: "",
+      firstMonthPresent: [] as string[],
+      firstMonthSigns: [] as string[],
+      firstMonthNotes: [] as string[],
+      secondMonthName: "",
+      secondMonthSpentAt: "",
+      secondMonthPresent: [] as string[],
+      secondMonthSigns: [] as string[],
+      secondMonthNotes: [] as string[],
+      holiday: "",
+      holidayCelebratedAt: "",
+      holidayTraditions: [] as string[],
+      holidayHowCelebrated: "",
+      holidayCan: [] as string[],
+    }),
+  }),
 };
 
 export default sheetTypes;

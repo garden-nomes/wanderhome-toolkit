@@ -54,7 +54,7 @@ const fields = proxyObject(
     </div>
 
     <div class="col">
-      <div class="row gx-2">
+      <div class="row gx-0 mb-3">
         <div class="col-6">
           <editable-text
             v-model="fields.name"
@@ -74,8 +74,8 @@ const fields = proxyObject(
           />
         </div>
       </div>
-      <div class="row gx-3 mb-3">
-        <div class="col-5">
+      <div class="row gx-0 mb-3">
+        <div class="col-4">
           <editable-text
             v-model="fields.playbook"
             label="Playbook"
@@ -87,7 +87,7 @@ const fields = proxyObject(
             label="Player Name"
           />
         </div>
-        <div class="col-3">
+        <div class="col-4">
           <editable-text
             v-model="fields.playerPronouns"
             label="Player Pronouns"
@@ -95,7 +95,7 @@ const fields = proxyObject(
         </div>
       </div>
 
-      <div class="row">
+      <div class="row gx-2 mb-3">
         <div class="col-3">
           <p class="luminari mb-1">
             Journeying Tools:
@@ -141,12 +141,11 @@ const fields = proxyObject(
           <editable-text
             v-model="fields.look"
             label="Describe your look"
-            class="mb-3"
           />
         </div>
       </div>
 
-      <div class="row">
+      <div class="row gx-2">
         <div class="col">
           <editable-list
             v-model="fields.advancements"
