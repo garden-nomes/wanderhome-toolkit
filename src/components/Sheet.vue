@@ -46,7 +46,10 @@ const openPdf = () => buildPdf(sheet.value);
 </script>
 
 <template>
-  <div :class="`col-12 col-lg-${sheetType.columns}`">
+  <div
+    :class="sheetType.columns"
+    class="d-flex flex-column"
+  >
     <card :id="anchor">
       <component
         :is="component"

@@ -51,15 +51,15 @@ const addItem = (value: string) => {
       <li
         v-for="item in localModel"
         :key="item.id"
-        class="row mb-1 g-0"
+        class="d-flex mb-1"
       >
         <editable-text
           v-model="item.value"
           label="item"
-          class="col-10"
+          class="flex-grow-1"
         />
 
-        <div class="col">
+        <div class="flex-shrink-1">
           <button
             type="button"
             class="btn btn-link text-secondary w-100"

@@ -95,7 +95,6 @@ watch(inputEl, (value) => (value as HTMLInputElement)?.select());
   }
 
   &:hover {
-    border-radius: 0.25rem;
     background: var(--bs-gray-100);
   }
 

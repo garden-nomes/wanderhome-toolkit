@@ -1,5 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400;0,600;0,800;1,400;1,500;1,600;1,800&display=swap");
 
+@import "bootstrap/scss/functions";
+@import "bootstrap/scss/variables";
+
+$custom-breakpoints: (
+  xxxl: 1800px,
+);
+
+$grid-breakpoints: map-merge($grid-breakpoints, $custom-breakpoints);
+
 $font-family-serif: "Alegreya", Constantia, "Lucida Bright", Lucidabright,
   "Lucida Serif", Lucida, "DejaVu Serif", "Bitstream Vera Serif",
   "Liberation Serif", Georgia, serif;

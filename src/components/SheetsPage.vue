@@ -82,7 +82,7 @@ runTest();
       </button>
     </div>
 
-    <div class="row g-3 mb-3">
+    <div class="row g-3 mb-3 align-items-stretch">
       <template
         v-for="{ type, sheets } in orderedSheetsByType"
         :key="type"

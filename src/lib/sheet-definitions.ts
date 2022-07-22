@@ -4,7 +4,7 @@ export type SheetFields<T extends SheetType> = ReturnType<
 >;
 
 function defineSheetType<T>(sheet: {
-  columns: number;
+  columns: string;
   defaultValues: () => T;
 }) {
   return sheet;
@@ -12,7 +12,7 @@ function defineSheetType<T>(sheet: {
 
 const sheetTypes = {
   character: defineSheetType({
-    columns: 12,
+    columns: "col-12 col-lg-12 col-xxxl-8",
     defaultValues: () => ({
       name: "",
       pronouns: "",
@@ -30,7 +30,7 @@ const sheetTypes = {
     }),
   }),
   kith: defineSheetType({
-    columns: 6,
+    columns: "col-12 col-lg-6 col-xxxl-4",
     defaultValues: () => ({
       name: "",
       pronouns: "",
@@ -43,7 +43,7 @@ const sheetTypes = {
     }),
   }),
   place: defineSheetType({
-    columns: 12,
+    columns: "col-12 col-lg-12 col-xxxl-8",
     defaultValues: () => ({
       name: "",
       animalFolk: "",
@@ -55,7 +55,7 @@ const sheetTypes = {
     }),
   }),
   season: defineSheetType({
-    columns: 6,
+    columns: "col-12 col-lg-6 col-xxxl-4",
     defaultValues: () => ({
       name: "",
       year: "",
