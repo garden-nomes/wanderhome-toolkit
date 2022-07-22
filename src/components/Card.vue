@@ -4,25 +4,17 @@ import { useRoute } from "vue-router";
 
 const props = defineProps<{
   title?: string;
-  hash?: string;
+  id?: string;
 }>();
 
-const id = computed(() => {
-  if (props.hash) {
-    return props.hash;
-  }
-
-  return undefined;
-});
-
 const route = useRoute();
-const active = computed(() => route.hash === `#${id.value}`);
+const isActive = computed(() => route.hash === `#${props.id}`);
 </script>
 
 <template>
   <div
     :id="id"
-    :class="active && 'active'"
+    :class="isActive && 'active'"
     class="card flex-fill shadow-sm"
   >
     <div
