@@ -7,11 +7,15 @@ export default function proxyObject<T>(
 ): Ref<T> {
   const internalModel = ref(cloneDeep(get())) as Ref<T>;
 
-  watch(get, (value) => {
-    if (!isEqual(value, internalModel.value)) {
-      internalModel.value = cloneDeep(value);
-    }
-  });
+  watch(
+    get,
+    (value) => {
+      if (!isEqual(value, internalModel.value)) {
+        internalModel.value = cloneDeep(value);
+      }
+    },
+    { deep: true }
+  );
 
   watch(internalModel, (value) => set(cloneDeep(value)), { deep: true });
 

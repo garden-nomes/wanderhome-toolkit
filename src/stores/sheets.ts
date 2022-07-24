@@ -1,3 +1,4 @@
+import { values } from "lodash-es";
 import { defineStore } from "pinia";
 import sheetDefinitions, {
   SheetFields,
@@ -8,13 +9,18 @@ import uid, { UID } from "../lib/uid";
 export interface Sheet<T extends SheetType> {
   id: UID;
   created: string;
+  isOnTable: boolean;
   type: T;
   fields: SheetFields<T>;
 }
 
-export const useSheetsStore = defineStore("game", {
+function isNotNull<T>(x: T | null): x is T {
+  return x !== null;
+}
+
+export const useSheetsStore = defineStore("sheets", {
   state: () => ({
-    sheets: {} as { [id: UID]: Sheet<any> },
+    sheets: {} as { [id: UID]: Sheet<any> | null },
   }),
   actions: {
     getSheet<T extends SheetType = any>(id: UID, type?: T): Sheet<T> {
@@ -26,10 +32,29 @@ export const useSheetsStore = defineStore("game", {
 
       return sheet;
     },
+    getSheets(filters: { type?: string; isOnTable?: boolean }) {
+      return values(this.sheets)
+        .filter(isNotNull)
+        .filter((s) => {
+          if (filters.type && s.type !== filters.type) {
+            return false;
+          }
+
+          if (
+            typeof filters.isOnTable !== "undefined" &&
+            s.isOnTable !== filters.isOnTable
+          ) {
+            return false;
+          }
+
+          return true;
+        });
+    },
     createSheet<T extends SheetType>(type: T) {
       const sheet: Sheet<T> = {
         id: uid(),
         created: new Date().toISOString(),
+        isOnTable: true,
         type,
         fields: sheetDefinitions[type].defaultValues() as SheetFields<T>,
       };
@@ -42,7 +67,7 @@ export const useSheetsStore = defineStore("game", {
         throw new Error(`Sheet not found: ${id}`);
       }
 
-      delete this.sheets[id];
+      this.sheets[id] = null;
     },
   },
 });

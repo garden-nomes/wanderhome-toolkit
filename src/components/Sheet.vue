@@ -33,16 +33,14 @@ const component = computed(
 );
 
 const remove = () => {
-  if (
-    confirm(
-      `Permanently remove this ${sheet.value.type}? Remember, there's no undo. (Yet.)`
-    )
-  ) {
-    store.removeSheet(sheet.value.id);
-  }
+  store.removeSheet(sheet.value.id);
 };
 
 const openPdf = () => buildPdf(sheet.value);
+
+const sendToStash = () => {
+  sheet.value.isOnTable = false;
+};
 </script>
 
 <template>
@@ -50,14 +48,7 @@ const openPdf = () => buildPdf(sheet.value);
     :class="sheetType.columns"
     class="d-flex flex-column"
   >
-    <card :id="anchor">
-      <component
-        :is="component"
-        v-model="sheet.fields"
-      />
-    </card>
-
-    <div class="text-center">
+    <div class="text-end">
       <button
         class="btn btn-sm btn-minimal"
         @click="remove"
@@ -70,6 +61,18 @@ const openPdf = () => buildPdf(sheet.value);
       >
         Print
       </button>
+      <button
+        class="btn btn-sm btn-minimal"
+        @click="sendToStash"
+      >
+        Stash
+      </button>
     </div>
+    <card :id="anchor">
+      <component
+        :is="component"
+        v-model="sheet.fields"
+      />
+    </card>
   </div>
 </template>
