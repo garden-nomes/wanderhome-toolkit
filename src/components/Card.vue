@@ -38,7 +38,7 @@ const isActive = computed(() => route.hash === `#${props.id}`);
 <style lang="scss" scoped>
 .card {
   transition: border-color 150ms linear, box-shadow 150ms ease-in-out;
-  height: calc(75vh - 4rem);
+  height: calc(85vh - 4rem);
   overflow-y: auto;
 
   &.active {

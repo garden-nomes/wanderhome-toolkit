@@ -1,6 +1,12 @@
-@import url("https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400;0,600;0,800;1,400;1,500;1,600;1,800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap");
 
 @import "bootstrap/scss/functions";
+
+$input-btn-focus-color: var(--bs-gray-500);
+$input-btn-focus-width: 0.125rem;
+
+$primary: #212529;
+
 @import "bootstrap/scss/variables";
 
 $custom-breakpoints: (
@@ -17,6 +23,13 @@ $font-family-base: $font-family-serif;
 
 $font-weight-bold: 800;
 $font-weight-bolder: 600;
+
+$btn-font-size: $font-size-sm;
+$btn-font-size-sm: $font-size-sm;
+$btn-font-size-lg: $font-size-base;
+
+$btn-border-radius: $border-radius-sm;
+$btn-border-radius-lg: $border-radius;
 
 .font-ui {
   font-family: $font-ui;
@@ -44,12 +57,11 @@ $font-weight-bolder: 600;
 @import "bootstrap-icons/font/bootstrap-icons.scss";
 
 .btn-minimal {
-  color: $gray-600;
+  color: $gray-700;
   text-decoration: underline;
 
   &:hover {
     background-color: $gray-100;
-    color: $body-color;
   }
 }
 

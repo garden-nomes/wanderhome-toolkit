@@ -90,8 +90,8 @@ watch(inputEl, (value) => (value as HTMLInputElement)?.select());
 
   &:focus {
     outline: 0;
-    border-radius: 0.25rem;
-    box-shadow: 0 0 0 0.25rem rgb(13 110 253 / 25%);
+    border-radius: 0.125rem;
+    box-shadow: 0 0 0 0.125rem var(--bs-gray-500);
   }
 
   &:hover {
