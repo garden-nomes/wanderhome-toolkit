@@ -17,14 +17,7 @@ const isActive = computed(() => route.hash === `#${props.id}`);
     :class="isActive && 'active'"
     class="card flex-fill shadow-sm"
   >
-    <div
-      v-if="title"
-      class="card-header"
-    >
-      <div class="card-title mb-0">
-        {{ title }}
-      </div>
-    </div>
+    <slot name="header" />
 
     <div
       v-if="$slots.default"

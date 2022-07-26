@@ -9,6 +9,7 @@ import CharacterFields from "./CharacterFields.vue";
 import PlaceFields from "./PlaceFields.vue";
 import SeasonFields from "./SeasonFields.vue";
 import buildPdf from "../lib/build-pdf";
+import ShareCode from "./ShareCode.vue";
 
 const props = defineProps<{
   sheetId: UID;
@@ -48,27 +49,31 @@ const sendToStash = () => {
     :class="sheetType.columns"
     class="d-flex flex-column"
   >
-    <div class="text-end">
-      <button
-        class="btn btn-sm btn-minimal"
-        @click="remove"
-      >
-        Remove
-      </button>
-      <button
-        class="btn btn-sm btn-minimal"
-        @click="openPdf"
-      >
-        Print
-      </button>
-      <button
-        class="btn btn-sm btn-minimal"
-        @click="sendToStash"
-      >
-        Stash
-      </button>
-    </div>
     <card :id="anchor">
+      <template #header>
+        <div class="d-flex justify-content-end px-2">
+          <button
+            class="btn btn-minimal"
+            @click="remove"
+          >
+            Remove
+          </button>
+          <button
+            class="btn btn-minimal"
+            @click="openPdf"
+          >
+            Print
+          </button>
+          <button
+            class="btn btn-minimal"
+            @click="sendToStash"
+          >
+            Stash
+          </button>
+          <share-code :sheets="[sheet]" />
+        </div>
+      </template>
+
       <component
         :is="component"
         v-model="sheet.fields"

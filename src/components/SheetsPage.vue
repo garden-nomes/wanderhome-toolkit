@@ -10,6 +10,8 @@ import { keys, capitalize } from "lodash-es";
 import Sheet from "./Sheet.vue";
 import pluralize from "../lib/pluralize";
 import { UID } from "../lib/uid";
+import AddFromShareCode from "./AddFromShareCode.vue";
+import ShareCode from "./ShareCode.vue";
 
 const store = useSheetsStore();
 const router = useRouter();
@@ -29,6 +31,8 @@ const sheetsByType = (isOnTable: boolean) =>
 
 const tableSheets = computed(() => sheetsByType(true));
 const stashSheets = computed(() => sheetsByType(false));
+
+const tableSheetsFlat = computed(() => store.getSheets({ isOnTable: true }));
 
 const unstash = (id: UID) => {
   const sheet = store.getSheet(id);
@@ -110,7 +114,10 @@ const unstash = (id: UID) => {
       </button>
     </template>
 
-    <div class="d-flex align-items-end mb-3">
+    <div
+      class="d-flex align-items-end mb-3 position-sticky top-0 bg-white border-bottom py-2"
+      style="z-index: 1020"
+    >
       <button
         :disabled="!store.canUndo"
         class="btn btn-minimal"
@@ -140,9 +147,20 @@ const unstash = (id: UID) => {
         class="btn btn-minimal"
         @click="addSheet(sheetType as SheetType)"
       >
-        <icon name="plus" />
-        {{ capitalize(sheetType) }}
+        <icon
+          name="plus"
+          class="me-1"
+        />{{ capitalize(sheetType) }}
       </button>
+
+      <share-code
+        :sheets="tableSheetsFlat"
+        class="ms-auto"
+      >
+        Copy share code for table
+      </share-code>
+
+      <add-from-share-code @add="store.addSheets" />
     </div>
 
     <template

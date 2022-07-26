@@ -6,7 +6,7 @@ import sheetDefinitions, {
 } from "../lib/sheet-definitions";
 import uid, { UID } from "../lib/uid";
 
-export interface Sheet<T extends SheetType> {
+export interface Sheet<T extends SheetType = SheetType> {
   id: UID;
   created: string;
   isOnTable: boolean;
@@ -20,7 +20,8 @@ function isNotNull<T>(x: T | null): x is T {
 
 export const useSheetsStore = defineStore("sheets", {
   state: () => ({
-    sheets: {} as { [id: UID]: Sheet<any> | null },
+    id: uid(),
+    sheets: {} as { [id: UID]: Sheet | null },
   }),
   actions: {
     getSheet<T extends SheetType = any>(id: UID, type?: T): Sheet<T> {
@@ -61,6 +62,11 @@ export const useSheetsStore = defineStore("sheets", {
 
       this.sheets[sheet.id] = sheet;
       return sheet;
+    },
+    addSheets(sheets: Sheet[]) {
+      for (const sheet of sheets) {
+        this.sheets[sheet.id] = sheet;
+      }
     },
     removeSheet(id: UID) {
       if (!this.sheets[id]) {
