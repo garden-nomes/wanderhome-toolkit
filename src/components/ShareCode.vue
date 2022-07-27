@@ -2,6 +2,7 @@
 import { ref } from "vue";
 import { getShareCode } from "../lib/share-codes";
 import { Sheet } from "../stores/sheets";
+import Icon from "./Icon.vue";
 
 const props = defineProps<{
   sheets: Sheet[];
@@ -36,12 +37,11 @@ const copy = async () => {
       type="button"
       @click="copy"
     >
-      <template v-if="copied">
-        Copied!
-      </template>
-      <slot v-else>
-        Copy share code
-      </slot>
+      <!-- eslint-disable -->
+      <icon name="clipboard" class="me-1" /><template v-if="copied"
+        >Copied!</template
+      ><slot v-else>Copy share code</slot>
+      <!-- eslint-enable -->
     </button>
 
     <div

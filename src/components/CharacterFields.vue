@@ -81,7 +81,7 @@ const fields = proxyObject(
   <div class="row gy-3">
     <div class="col-12 col-lg-4 d-flex flex-column">
       <div
-        class="p-3 overflow-auto bg-light"
+        class="p-3 overflow-auto bg-light rounded"
         style="flex-basis: 30rem; flex-grow: 1"
       >
         <p class="luminari mb-1">

@@ -87,7 +87,7 @@ const collapseToggle = ref(false);
           <add-from-share-code @add="store.addSheets" />
 
           <share-code :sheets="tableSheetsFlat">
-            Copy share code for table
+            Copy share code for open sheets
           </share-code>
         </div>
 
@@ -96,7 +96,10 @@ const collapseToggle = ref(false);
             class="btn btn-minimal"
             @click="resetStore"
           >
-            Reset
+            <icon
+              name="arrow-repeat"
+              class="me-1"
+            />Reset
           </button>
         </div>
       </div>

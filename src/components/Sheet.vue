@@ -9,6 +9,7 @@ import PlaceFields from "./PlaceFields.vue";
 import SeasonFields from "./SeasonFields.vue";
 import buildPdf from "../lib/build-pdf";
 import ShareCode from "./ShareCode.vue";
+import Icon from "./Icon.vue";
 
 const props = defineProps<{
   sheetId: UID;
@@ -49,6 +50,28 @@ const sendToStash = () => {
       :id="anchor"
       class="card"
     >
+      <div class="card-header d-flex justify-content-end p-0 border-0">
+        <button
+          class="btn btn-minimal"
+          @click="openPdf"
+        >
+          <icon
+            name="file-earmark"
+            class="me-1"
+          />Print
+        </button>
+        <share-code :sheets="[sheet]" />
+        <button
+          class="btn btn-minimal"
+          @click="remove"
+        >
+          <icon
+            name="trash3"
+            class="me-1"
+          />Delete
+        </button>
+      </div>
+
       <div class="card-body">
         <component
           :is="component"
@@ -56,26 +79,16 @@ const sendToStash = () => {
         />
       </div>
 
-      <div class="card-footer d-flex justify-content-end p-0">
+      <div class="card-footer d-flex justify-content-end p-0 border-0">
         <button
-          class="btn btn-minimal"
-          @click="remove"
-        >
-          Remove
-        </button>
-        <button
-          class="btn btn-minimal"
-          @click="openPdf"
-        >
-          Print
-        </button>
-        <button
-          class="btn btn-minimal"
+          class="btn btn-minimal flex-fill"
           @click="sendToStash"
         >
-          Stash
+          <icon
+            name="arrow-bar-left"
+            class="me-1"
+          />Stash
         </button>
-        <share-code :sheets="[sheet]" />
       </div>
     </div>
   </div>

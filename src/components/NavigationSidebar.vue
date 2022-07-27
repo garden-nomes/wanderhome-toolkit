@@ -8,6 +8,7 @@ import { computed } from "vue";
 import { keys, capitalize } from "lodash-es";
 import pluralize from "../lib/pluralize";
 import { UID } from "../lib/uid";
+import Icon from "./Icon.vue";
 
 const store = useSheetsStore();
 const router = useRouter();
@@ -52,29 +53,25 @@ useResizeObserver(scrollEl, () => {
         Open Sheets
       </p>
 
-      <template
-        v-for="{ type, sheets } in tableSheets"
-        :key="type"
-      >
-        <p class="mb-0 small">
-          {{ capitalize(pluralize(type)) }}
-        </p>
-
-        <ul class="list-unstyled mb-1">
+      <ul class="list-unstyled mb-1">
+        <template
+          v-for="{ type, sheets } in tableSheets"
+          :key="type"
+        >
           <li
             v-for="sheet in sheets"
             :key="sheet.id"
           >
             <router-link
-              class="btn btn-minimal py-1 px-1 w-100 text-start"
+              class="btn btn-minimal py-1 px-2 w-100 text-start"
               :class="!sheet.fields.name && 'fst-italic'"
               :to="`#${sheet.type}-${sheet.id}`"
             >
               {{ sheet.fields.name || `unnamed ${sheet.type}` }}
             </router-link>
           </li>
-        </ul>
-      </template>
+        </template>
+      </ul>
     </div>
 
     <div v-if="stashSheets.length">
@@ -96,11 +93,15 @@ useResizeObserver(scrollEl, () => {
             :key="sheet.id"
           >
             <button
-              class="btn btn-minimal py-1 w-100 text-start"
+              class="btn btn-minimal d-flex align-items-center py-1 w-100 text-start"
               :class="!sheet.fields.name && 'fst-italic'"
               @click="unstash(sheet.id)"
             >
-              {{ sheet.fields.name || `unnamed ${sheet.type}` }}
+              <div>{{ sheet.fields.name || `unnamed ${sheet.type}` }}</div>
+              <icon
+                name="arrow-bar-right"
+                class="ms-auto"
+              />
             </button>
           </li>
         </ul>
