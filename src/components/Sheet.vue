@@ -3,7 +3,6 @@ import { computed } from "vue";
 import sheetTypes, { SheetType } from "../lib/sheet-definitions";
 import { UID } from "../lib/uid";
 import { useSheetsStore } from "../stores/sheets";
-import Card from "./Card.vue";
 import KithFields from "./KithFields.vue";
 import CharacterFields from "./CharacterFields.vue";
 import PlaceFields from "./PlaceFields.vue";
@@ -45,39 +44,39 @@ const sendToStash = () => {
 </script>
 
 <template>
-  <div
-    :class="sheetType.columns"
-    class="d-flex flex-column"
-  >
-    <card :id="anchor">
-      <template #header>
-        <div class="d-flex justify-content-end px-2">
-          <button
-            class="btn btn-minimal"
-            @click="remove"
-          >
-            Remove
-          </button>
-          <button
-            class="btn btn-minimal"
-            @click="openPdf"
-          >
-            Print
-          </button>
-          <button
-            class="btn btn-minimal"
-            @click="sendToStash"
-          >
-            Stash
-          </button>
-          <share-code :sheets="[sheet]" />
-        </div>
-      </template>
+  <div :class="sheetType.columns">
+    <div
+      :id="anchor"
+      class="card"
+    >
+      <div class="card-body">
+        <component
+          :is="component"
+          v-model="sheet.fields"
+        />
+      </div>
 
-      <component
-        :is="component"
-        v-model="sheet.fields"
-      />
-    </card>
+      <div class="card-footer d-flex justify-content-end p-0">
+        <button
+          class="btn btn-minimal"
+          @click="remove"
+        >
+          Remove
+        </button>
+        <button
+          class="btn btn-minimal"
+          @click="openPdf"
+        >
+          Print
+        </button>
+        <button
+          class="btn btn-minimal"
+          @click="sendToStash"
+        >
+          Stash
+        </button>
+        <share-code :sheets="[sheet]" />
+      </div>
+    </div>
   </div>
 </template>

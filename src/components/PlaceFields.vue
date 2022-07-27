@@ -26,7 +26,7 @@ const natures = useNaturesStore();
 
 <template>
   <div class="row">
-    <div class="col-3">
+    <div class="col-12 col-lg-3">
       <h2 class="luminari fancy-cap">
         Place
       </h2>
@@ -84,7 +84,7 @@ const natures = useNaturesStore();
           <li
             v-for="nature in fields.natures"
             :key="nature"
-            class="mb-2 col-4"
+            class="mb-2 col-12 col-lg-4"
           >
             <div class="fw-bolder border-bottom mb-1">
               {{ natures.getOrThrow(nature).name }}
@@ -102,7 +102,7 @@ const natures = useNaturesStore();
         </ul>
       </div>
       <div class="row gx-2">
-        <div class="col">
+        <div class="col-12 col-lg-3">
           <add-from-items
             v-model="fields.aestheticElements"
             :items="fields.natures.map((n) => natures.getOrThrow(n))"
@@ -114,7 +114,7 @@ const natures = useNaturesStore();
             Aesthetic elements
           </add-from-items>
         </div>
-        <div class="col">
+        <div class="col-12 col-lg-3">
           <add-from-items
             v-model="fields.folklore"
             :items="fields.natures.map((n) => natures.getOrThrow(n))"
@@ -126,7 +126,7 @@ const natures = useNaturesStore();
             Folklore
           </add-from-items>
         </div>
-        <div class="col">
+        <div class="col-12 col-lg-3">
           <div class="luminari mb-0">
             Animal-Folk
           </div>
@@ -153,7 +153,7 @@ const natures = useNaturesStore();
             add-label="Add kith"
           />
         </div>
-        <div class="col-8">
+        <div class="col-12 col-lg-8">
           <editable-list
             v-model="fields.notes"
             label="Notes"

@@ -26,7 +26,9 @@ const traits = useTraitStore();
 
 <template>
   <div class="row mb-3">
-    <div class="col-4 d-flex justify-content-center align-items-center">
+    <div
+      class="col-12 col-lg-4 d-flex justify-content-center align-items-center"
+    >
       <h2 class="luminari fancy-cap">
         Kith
       </h2>
@@ -34,7 +36,7 @@ const traits = useTraitStore();
 
     <div class="col">
       <div class="row gx-0 justify-content-end">
-        <div class="col-12">
+        <div class="col-12 col-lg-12">
           <editable-text
             v-model="fields.name"
             label="Name"
@@ -78,7 +80,7 @@ const traits = useTraitStore();
       <li
         v-for="trait in fields.traits"
         :key="trait"
-        class="mb-2 col-6"
+        class="mb-2 col-12 col-lg-6"
       >
         <div class="fw-bolder border-bottom mb-1">
           {{ traits.getOrThrow(trait).name }}
@@ -91,7 +93,7 @@ const traits = useTraitStore();
   </div>
 
   <div class="row">
-    <div class="col-6">
+    <div class="col-12 col-lg-6">
       <add-from-items
         v-model="fields.canAlways"
         :items="fields.traits.map((t) => traits.getOrThrow(t))"
@@ -104,7 +106,7 @@ const traits = useTraitStore();
       </add-from-items>
     </div>
 
-    <div class="col-6">
+    <div class="col-12 col-lg-6">
       <editable-list
         v-model="fields.relationships"
         label="Key relationships"

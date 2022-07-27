@@ -19,19 +19,21 @@ const season = proxyObject(
 </script>
 
 <template>
-  <div class="row align-items-baseline gx-0 mb-3">
-    <div class="col-4 d-flex justify-content-center align-items-center">
+  <div class="row align-items-baseline gx-0 mb-4">
+    <div
+      class="col-12 col-lg-4 d-flex justify-content-center align-items-center"
+    >
       <h2 class="luminari fancy-cap">
         Season
       </h2>
     </div>
-    <div class="col-4">
+    <div class="col-6 col-lg-4">
       <editable-text
         v-model="season.name"
         label="Season"
       />
     </div>
-    <div class="col-4">
+    <div class="col-6 col-lg-4">
       <editable-text
         v-model="season.year"
         label="Year"
@@ -41,109 +43,109 @@ const season = proxyObject(
     </div>
   </div>
 
-  <div class="row gx-2 mb-3">
-    <div class="col-8">
-      <div class="row gx-0 mb-2">
-        <div class="col">
-          <editable-text
-            v-model="season.firstMonthName"
-            label="Month"
-          />
+  <div class="mb-4">
+    <div class="row gx-2">
+      <div class="col-12 col-lg-8">
+        <div class="row gx-0 mb-2">
+          <div class="col-6 col-lg">
+            <editable-text
+              v-model="season.firstMonthName"
+              label="Month"
+            />
+          </div>
+
+          <div class="col-6 col-lg">
+            <editable-text
+              v-model="season.firstMonthSpentAt"
+              label="Spent at the Place"
+              align-end
+            />
+          </div>
         </div>
 
-        <div class="col">
-          <editable-text
-            v-model="season.firstMonthSpentAt"
-            label="Spent at the Place"
-            align-end
-          />
+        <div class="row gx-2">
+          <div class="col-12 col-lg">
+            <editable-list
+              v-model="season.firstMonthPresent"
+              label="What is present here:"
+              add-label="Add presence"
+              clas=""
+            />
+          </div>
+
+          <div class="col-12 col-lg">
+            <editable-list
+              v-model="season.firstMonthSigns"
+              label="Signs of the Month:"
+              add-label="Add sign"
+            />
+          </div>
         </div>
       </div>
 
-      <div class="row gx-2">
-        <div class="col">
-          <editable-list
-            v-model="season.firstMonthPresent"
-            label="What is present here:"
-            add-label="Add presence"
-            clas=""
-          />
-        </div>
-
-        <div class="col">
-          <editable-list
-            v-model="season.firstMonthSigns"
-            label="Signs of the Month:"
-            add-label="Add sign"
-          />
-        </div>
+      <div class="col-12 col-lg pt-2">
+        <editable-list
+          v-model="season.firstMonthNotes"
+          label="Question and Notes:"
+        />
       </div>
-    </div>
-
-    <div class="col pt-2">
-      <editable-list
-        v-model="season.firstMonthNotes"
-        label="Question and Notes:"
-      />
     </div>
   </div>
 
-  <div class="row gx-2 mb-3">
-    <div class="col-8">
-      <div class="row gx-0 mb-2">
-        <div class="col">
-          <editable-text
-            v-model="season.secondMonthName"
-            label="Month"
-          />
+  <div class="mb-4">
+    <div class="row gx-2">
+      <div class="col-12 col-lg-8">
+        <div class="row gx-0 mb-2">
+          <div class="col-6 col-lg">
+            <editable-text
+              v-model="season.secondMonthName"
+              label="Month"
+            />
+          </div>
+          <div class="col-6 col-lg">
+            <editable-text
+              v-model="season.secondMonthSpentAt"
+              label="Spent at the Place"
+              align-end
+            />
+          </div>
         </div>
-
-        <div class="col">
-          <editable-text
-            v-model="season.secondMonthSpentAt"
-            label="Spent at the Place"
-            align-end
-          />
+        <div class="row gx-2">
+          <div class="col-12 col-lg">
+            <editable-list
+              v-model="season.secondMonthPresent"
+              label="What is present here:"
+              add-label="Add presence"
+              clas=""
+            />
+          </div>
+          <div class="col-12 col-lg">
+            <editable-list
+              v-model="season.secondMonthSigns"
+              label="Signs of the Month:"
+              add-label="Add sign"
+            />
+          </div>
         </div>
       </div>
-
-      <div class="row gx-2">
-        <div class="col">
-          <editable-list
-            v-model="season.secondMonthPresent"
-            label="What is present here:"
-            add-label="Add presence"
-            clas=""
-          />
-        </div>
-
-        <div class="col">
-          <editable-list
-            v-model="season.secondMonthSigns"
-            label="Signs of the Month:"
-            add-label="Add sign"
-          />
-        </div>
+      <div class="col-12 col-lg pt-2">
+        <editable-list
+          v-model="season.secondMonthNotes"
+          label="Question and Notes:"
+        />
       </div>
-    </div>
-
-    <div class="col pt-2">
-      <editable-list
-        v-model="season.secondMonthNotes"
-        label="Question and Notes:"
-      />
     </div>
   </div>
 
   <div class="row gx-0 mb-2">
-    <div class="col">
+    <div class="col-12 col-lg">
       <editable-text
         v-model="season.holiday"
         label="Holiday"
       />
     </div>
 
-    <div class="col">
+    <div class="col-12 col-lg">
       <editable-text
         v-model="season.holidayCelebratedAt"
         label="Celebrated at the Place"
@@ -151,8 +153,8 @@ const season = proxyObject(
     </div>
   </div>
 
-  <div class="row gx-2 mb-3">
-    <div class="col">
+  <div class="row gx-2 gy-2">
+    <div class="col-12 col-lg">
       <editable-list
         v-model="season.holidayTraditions"
         label="Holiday Traditions:"
@@ -168,7 +170,7 @@ const season = proxyObject(
       />
     </div>
 
-    <div class="col">
+    <div class="col-12 col-lg">
       <editable-list
         v-model="season.holidayCan"
         label="Everyone can always..."

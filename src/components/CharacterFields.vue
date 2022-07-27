@@ -22,12 +22,68 @@ const fields = proxyObject(
 
 <template>
   <div class="row">
-    <div class="col-4">
-      <h2 class="luminari fancy-cap text-center">
+    <div
+      class="col-12 col-lg-4 d-flex align-items-center justify-content-center"
+    >
+      <h2 class="luminari fancy-cap">
         Wanderhome
       </h2>
+    </div>
 
-      <div class="rounded bg-light p-3">
+    <div class="col">
+      <div class="row gx-0 mb-3">
+        <div class="col-12 col-md-6">
+          <editable-text
+            v-model="fields.name"
+            label="Name"
+          />
+        </div>
+        <div class="col-6 col-md-3">
+          <editable-text
+            v-model="fields.pronouns"
+            label="Pronouns"
+            align-end
+          />
+        </div>
+        <div class="col-6 col-md-3">
+          <editable-text
+            v-model="fields.animalForm"
+            label="Animal Form"
+            align-end
+          />
+        </div>
+      </div>
+      <div class="row gx-0 mb-3">
+        <div class="col-12 col-md-4">
+          <editable-text
+            v-model="fields.playbook"
+            label="Playbook"
+          />
+        </div>
+        <div class="col-6 col-md-4">
+          <editable-text
+            v-model="fields.playerName"
+            label="Player Name"
+            align-end
+          />
+        </div>
+        <div class="col-6 col-md-4">
+          <editable-text
+            v-model="fields.playerPronouns"
+            label="Player Pronouns"
+            align-end
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row gy-3">
+    <div class="col-12 col-lg-4 d-flex flex-column">
+      <div
+        class="p-3 overflow-auto bg-light"
+        style="flex-basis: 30rem; flex-grow: 1"
+      >
         <p class="luminari mb-1">
           Get a token whenever you...
         </p>
@@ -54,53 +110,8 @@ const fields = proxyObject(
     </div>
 
     <div class="col">
-      <div class="row gx-0 mb-3">
-        <div class="col-6">
-          <editable-text
-            v-model="fields.name"
-            label="Name"
-          />
-        </div>
-        <div class="col-3">
-          <editable-text
-            v-model="fields.pronouns"
-            label="Pronouns"
-            align-end
-          />
-        </div>
-        <div class="col-3">
-          <editable-text
-            v-model="fields.animalForm"
-            label="Animal Form"
-            align-end
-          />
-        </div>
-      </div>
-      <div class="row gx-0 mb-3">
-        <div class="col-4">
-          <editable-text
-            v-model="fields.playbook"
-            label="Playbook"
-          />
-        </div>
-        <div class="col-4">
-          <editable-text
-            v-model="fields.playerName"
-            label="Player Name"
-            align-end
-          />
-        </div>
-        <div class="col-4">
-          <editable-text
-            v-model="fields.playerPronouns"
-            label="Player Pronouns"
-            align-end
-          />
-        </div>
-      </div>
-
       <div class="row gx-2 mb-3">
-        <div class="col-3">
+        <div class="col-12 col-lg-3">
           <p class="luminari mb-1">
             Journeying Tools:
           </p>
@@ -114,7 +125,7 @@ const fields = proxyObject(
           </ul>
         </div>
 
-        <div class="col">
+        <div class="col-12 col-lg">
           <editable-list
             v-model="fields.canAlways"
             label="You can always..."
@@ -150,7 +161,7 @@ const fields = proxyObject(
       </div>
 
       <div class="row gx-2">
-        <div class="col">
+        <div class="col-12 col-lg-4">
           <editable-list
             v-model="fields.advancements"
             label="Advancements"
@@ -158,22 +169,20 @@ const fields = proxyObject(
           />
         </div>
 
-        <div class="col">
+        <div class="col-12 col-lg">
           <editable-list
             v-model="fields.prompts"
             label="Prompts and Choices"
             add-label="Add item"
           />
         </div>
-
-        <div class="col">
-          <editable-list
-            v-model="fields.notes"
-            label="Notes"
-            add-label="Add note"
-          />
-        </div>
       </div>
+
+      <editable-list
+        v-model="fields.notes"
+        label="Notes"
+        add-label="Add note"
+      />
     </div>
   </div>
 </template>

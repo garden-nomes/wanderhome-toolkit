@@ -2,9 +2,10 @@
 import { useSheetsStore } from "../stores/sheets";
 import sheetTypes from "../lib/sheet-definitions";
 import { computed } from "vue";
-import { keys } from "lodash-es";
+import { capitalize, keys } from "lodash-es";
 import Sheet from "./Sheet.vue";
 import NavigationSidebar from "./NavigationSidebar.vue";
+import pluralize from "../lib/pluralize";
 
 const store = useSheetsStore();
 
@@ -29,8 +30,13 @@ const tableSheets = computed(() => sheetsByType(true));
       <div
         v-for="{ type, sheets } in tableSheets"
         :key="type"
-        class="row g-3 mb-3 align-items-stretch"
+        class="row g-3 mb-5 align-items-stretch"
       >
+        <div class="col-12">
+          <p class="fw-bold text-secondary mb-0">
+            {{ capitalize(pluralize(type)) }}
+          </p>
+        </div>
         <sheet
           v-for="sheet in sheets"
           :key="sheet.id"
