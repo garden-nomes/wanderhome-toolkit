@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+import { isEqual } from "lodash";
 import { ref, watch } from "vue";
 import uid, { UID } from "../lib/uid";
 import EditableText from "./EditableText.vue";
@@ -18,6 +19,23 @@ const emit = defineEmits<{
 }>();
 
 const localModel = ref(props.modelValue.map((value) => ({ id: uid(), value })));
+
+watch(
+  () => props.modelValue,
+  () => {
+    if (
+      !isEqual(
+        localModel.value.map((item) => item.value),
+        props.modelValue
+      )
+    ) {
+      localModel.value = props.modelValue.map((value) => ({
+        id: uid(),
+        value,
+      }));
+    }
+  }
+);
 
 watch(
   localModel,
