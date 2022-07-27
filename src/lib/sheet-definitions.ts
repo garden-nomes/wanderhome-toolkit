@@ -16,7 +16,7 @@ const arrayField = array(string().default("")).default(() => []);
 
 const sheetTypes = {
   character: defineSheetType({
-    columns: "col-12 col-lg-12 col-xxxl-8",
+    columns: "col-12 col-lg-12",
     schema: object({
       name: stringField,
       pronouns: stringField,
@@ -34,7 +34,7 @@ const sheetTypes = {
     }),
   }),
   kith: defineSheetType({
-    columns: "col-12 col-lg-6 col-xxxl-4",
+    columns: "col-12 col-lg-6",
     schema: object({
       name: stringField,
       pronouns: stringField,
@@ -47,7 +47,7 @@ const sheetTypes = {
     }),
   }),
   place: defineSheetType({
-    columns: "col-12 col-lg-12 col-xxxl-8",
+    columns: "col-12 col-lg-12",
     schema: object({
       name: stringField,
       animalFolk: stringField,
@@ -59,7 +59,7 @@ const sheetTypes = {
     }),
   }),
   season: defineSheetType({
-    columns: "col-12 col-lg-6 col-xxxl-4",
+    columns: "col-12 col-lg-6",
     schema: object({
       name: stringField,
       year: stringField,

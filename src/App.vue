@@ -1,39 +1,11 @@
 <script lang="ts" setup>
-import { resetStore } from "./stores/reset-plugin";
+import SheetsToolbar from "./components/SheetsToolbar.vue";
 </script>
 
 <template>
-  <!-- <nav class="navbar navbar-expand bg-light navbar-light">
-    <div class="container-fluid justify-content-start">
-      <span class="navbar-brand luminari">Wanderhome Toolkit</span>
+  <sheets-toolbar />
 
-      <div class="collapse navbar-collapse">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <router-link
-              to="/sheets"
-              class="nav-link"
-              active-class="active"
-            >
-              Sheets
-            </router-link>
-          </li>
-
-          <li class="nav-item">
-            <router-link
-              to="/traits"
-              class="nav-link"
-              active-class="active"
-            >
-              Traits
-            </router-link>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav> -->
-
-  <div class="container-fluid py-3">
+  <div class="container py-3">
     <router-view />
   </div>
 </template>
