@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+import { useResizeObserver } from "@vueuse/core";
 import { nextTick, ref, watch } from "vue";
 import Icon from "./Icon.vue";
 
@@ -18,6 +19,13 @@ const inputEl = ref<HTMLInputElement>();
 const input = ref("");
 const isEditing = ref(false);
 
+watch(
+  () => props.modelValue,
+  (value) => {
+    input.value = value;
+  }
+);
+
 const edit = async () => {
   input.value = props.modelValue;
   isEditing.value = true;
@@ -36,21 +44,29 @@ const update = async () => {
 };
 
 watch(inputEl, (value) => (value as HTMLInputElement)?.select());
+
+const resize = () => {
+  if (!inputEl.value) return;
+  inputEl.value.style.height = "1px";
+  inputEl.value.style.height = `${inputEl.value.scrollHeight + 2}px`;
+};
+
+watch(input, resize);
+useResizeObserver(inputEl, resize);
 </script>
 
 <template>
   <div v-if="isEditing">
-    <input
+    <textarea
       ref="inputEl"
       v-model.trim="input"
-      type="text"
       class="form-control"
       :class="alignEnd && 'text-end'"
       :placeholder="label"
       :aria-label="label"
-      @keydown.enter="update"
+      @keydown.enter.prevent="update"
       @blur="update"
-    >
+    />
   </div>
 
   <div
@@ -58,9 +74,9 @@ watch(inputEl, (value) => (value as HTMLInputElement)?.select());
     ref="textEl"
     role="button"
     tabindex="0"
-    class="editable-text position-relative"
+    class="editable-text position-relative text-break"
     :class="{
-      'editable-text-placeholder': modelValue.length === 0,
+      'is-placeholder': modelValue.length === 0,
       'text-end': alignEnd,
     }"
     @click="edit"
@@ -98,7 +114,7 @@ watch(inputEl, (value) => (value as HTMLInputElement)?.select());
     background: var(--bs-gray-100);
   }
 
-  &-placeholder {
+  &.is-placeholder {
     color: var(--bs-secondary);
   }
 }
@@ -111,5 +127,10 @@ watch(inputEl, (value) => (value as HTMLInputElement)?.select());
   .editable-text:hover .show-on-hover {
     visibility: unset;
   }
+}
+
+textarea {
+  resize: none;
+  overflow: hidden;
 }
 </style>
