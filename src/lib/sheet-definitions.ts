@@ -1,79 +1,83 @@
+import { array, InferType, object, ObjectSchema, string } from "yup";
 export type SheetType = keyof typeof sheetTypes;
-export type SheetFields<T extends SheetType> = ReturnType<
-  typeof sheetTypes[T]["defaultValues"]
+export type SheetFields<T extends SheetType> = InferType<
+  typeof sheetTypes[T]["schema"]
 >;
 
-function defineSheetType<T>(sheet: {
+function defineSheetType<T extends Record<string, any>>(sheet: {
   columns: string;
-  defaultValues: () => T;
+  schema: ObjectSchema<T>;
 }) {
   return sheet;
 }
 
+const stringField = string().default("");
+const arrayField = array(string().default("")).default(() => []);
+
 const sheetTypes = {
   character: defineSheetType({
     columns: "col-12 col-lg-12 col-xxxl-8",
-    defaultValues: () => ({
-      name: "",
-      pronouns: "",
-      playbook: "",
-      animalForm: "",
-      playerName: "",
-      playerPronouns: "",
-      care: "",
-      personality: "",
-      look: "",
-      prompts: [] as string[],
-      advancements: [] as string[],
-      notes: [] as string[],
-      canAlways: [] as string[],
+    schema: object({
+      name: stringField,
+      pronouns: stringField,
+      playbook: stringField,
+      animalForm: stringField,
+      playerName: stringField,
+      playerPronouns: stringField,
+      care: stringField,
+      personality: stringField,
+      look: stringField,
+      prompts: arrayField,
+      advancements: arrayField,
+      notes: arrayField,
+      canAlways: arrayField,
     }),
   }),
   kith: defineSheetType({
     columns: "col-12 col-lg-6 col-xxxl-4",
-    defaultValues: () => ({
-      name: "",
-      pronouns: "",
-      form: "",
-      traits: [] as string[],
-      canAlways: [] as string[],
-      relationships: [] as string[],
-      details: [] as string[],
-      notes: [] as string[],
+    schema: object({
+      name: stringField,
+      pronouns: stringField,
+      form: stringField,
+      traits: arrayField,
+      canAlways: arrayField,
+      relationships: arrayField,
+      details: arrayField,
+      notes: arrayField,
     }),
   }),
   place: defineSheetType({
     columns: "col-12 col-lg-12 col-xxxl-8",
-    defaultValues: () => ({
-      name: "",
-      animalFolk: "",
-      smallAndForgottenGods: "",
-      natures: [] as string[],
-      aestheticElements: [] as string[],
-      folklore: [] as string[],
-      notes: [] as string[],
+    schema: object({
+      name: stringField,
+      animalFolk: stringField,
+      smallAndForgottenGods: stringField,
+      natures: arrayField,
+      aestheticElements: arrayField,
+      folklore: arrayField,
+      notes: arrayField,
     }),
   }),
   season: defineSheetType({
     columns: "col-12 col-lg-6 col-xxxl-4",
-    defaultValues: () => ({
-      name: "",
-      year: "",
-      firstMonthName: "",
-      firstMonthSpentAt: "",
-      firstMonthPresent: [] as string[],
-      firstMonthSigns: [] as string[],
-      firstMonthNotes: [] as string[],
-      secondMonthName: "",
-      secondMonthSpentAt: "",
-      secondMonthPresent: [] as string[],
-      secondMonthSigns: [] as string[],
-      secondMonthNotes: [] as string[],
-      holiday: "",
-      holidayCelebratedAt: "",
-      holidayTraditions: [] as string[],
-      holidayHowCelebrated: "",
-      holidayCan: [] as string[],
+    schema: object({
+      name: stringField,
+      year: stringField,
+      firstMonthName: stringField,
+      firstMonthSpentAt: stringField,
+      firstMonthPresent: arrayField,
+      firstMonthSigns: arrayField,
+      firstMonthNotes: arrayField,
+      secondMonthName: stringField,
+      secondMonthSpentAt: stringField,
+      secondMonthPresent: arrayField,
+      secondMonthSigns: arrayField,
+      secondMonthNotes: arrayField,
+      holiday: stringField,
+      holidayCelebratedAt: stringField,
+      holidayTraditions: arrayField,
+      holidayHowCelebrated: stringField,
+      holidayCan: arrayField,
     }),
   }),
 };

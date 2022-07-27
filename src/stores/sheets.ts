@@ -5,6 +5,7 @@ import sheetDefinitions, {
   SheetType,
 } from "../lib/sheet-definitions";
 import uid, { UID } from "../lib/uid";
+import { isNotNull } from "../lib/is-not-null";
 
 export interface Sheet<T extends SheetType = SheetType> {
   id: UID;
@@ -14,24 +15,25 @@ export interface Sheet<T extends SheetType = SheetType> {
   fields: SheetFields<T>;
 }
 
-function isNotNull<T>(x: T | null): x is T {
-  return x !== null;
-}
-
 export const useSheetsStore = defineStore("sheets", {
   state: () => ({
-    id: uid(),
     sheets: {} as { [id: UID]: Sheet | null },
   }),
   actions: {
-    getSheet<T extends SheetType = any>(id: UID, type?: T): Sheet<T> {
+    getSheet<T extends SheetType = SheetType>(id: UID, type?: T): Sheet<T> {
       const sheet = this.sheets[id];
 
-      if (!sheet || (type && sheet.type !== type)) {
+      if (!sheet) {
         throw new Error(`Sheet not found: ${id}`);
       }
 
-      return sheet;
+      if (type && sheet.type !== type) {
+        throw new Error(
+          `Unexpected sheet type for ${id}: ${sheet.type} (expected: ${type})`
+        );
+      }
+
+      return sheet as Sheet<T>;
     },
     getSheets(filters: { type?: string; isOnTable?: boolean }) {
       return values(this.sheets)
@@ -57,7 +59,7 @@ export const useSheetsStore = defineStore("sheets", {
         created: new Date().toISOString(),
         isOnTable: true,
         type,
-        fields: sheetDefinitions[type].defaultValues() as SheetFields<T>,
+        fields: sheetDefinitions[type].schema.getDefault(),
       };
 
       this.sheets[sheet.id] = sheet;

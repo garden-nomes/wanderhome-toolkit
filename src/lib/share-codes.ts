@@ -1,25 +1,36 @@
 import { Sheet } from "../stores/sheets";
-import { name, version } from "../../package.json";
+import { array, object, ValidationError } from "yup";
+import { validateSheet } from "./validate-sheet";
+import { isNotNull } from "./is-not-null";
 
-const key = `${name}@${version}`;
+const shareCodeSchema = object({
+  sheets: array(object()).required(),
+});
 
 export async function getShareCode(sheets: Sheet[]) {
-  const stringified = JSON.stringify({ key, sheets });
+  const stringified = JSON.stringify({ sheets });
   return await compressToBase64(stringified);
 }
 
 export async function parseShareCode(code: string): Promise<Sheet[] | null> {
   try {
-    const parsed = JSON.parse(await decompressBase64(code));
+    const parsed: unknown = JSON.parse(await decompressBase64(code));
+    const validated = shareCodeSchema.validateSync(parsed);
 
-    if ("key" in parsed && parsed.key === key) {
-      return parsed.sheets as Sheet[];
+    return validated.sheets
+      .map((sheet) => validateSheet(sheet))
+      .filter(isNotNull);
+  } catch (error) {
+    if (
+      error instanceof SyntaxError ||
+      error instanceof ValidationError ||
+      (error instanceof DOMException && error.name === "InvalidCharacterError")
+    ) {
+      return null;
     }
-  } catch (err) {
-    console.error((err instanceof Error && err.stack) || err);
-  } // eslint-disable-line no-empty
 
-  return null;
+    throw error;
+  }
 }
 
 async function compressToBase64(str: string) {
